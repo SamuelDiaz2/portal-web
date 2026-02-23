@@ -2,6 +2,7 @@
 import './navbar.css';
 
 import Login from '../pages/login.jsx';
+import Agendar from '../pages/agendar.jsx';
 
 import { BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ export default function Navbar() {
             <div className="navbar-logo">Portal de Pacientes</div>
             <ul className="navbar-links">
                 <li><Link to={'/Login'}>Iniciar Sesión</Link></li>
+                <li><Link to={'/Agendar'}>Agendar</Link></li>
             </ul>
         </nav>
     
