@@ -1,29 +1,15 @@
-
 import './navbar.css';
-
-import Login from '../pages/login.jsx';
-import Agendar from '../pages/agendar.jsx';
-
-import { BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-    return (
-    <Router>
-    <>
-        <nav className="navbar">
-            <div className="navbar-logo">Portal de Pacientes</div>
-            <ul className="navbar-links">
-                <li><Link to={'/Login'}>Iniciar Sesión</Link></li>
-                <li><Link to={'/Agendar'}>Agendar</Link></li>
-            </ul>
-        </nav>
-    
-
-        <Routes>
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Agendar" element={<Agendar />}/>
-        </Routes>
-    </>
-    </Router>
-    );
-} 
+  return (
+    <nav className="navbar">
+      <div className="navbar-logo">Rehabilitar - C</div>
+      <ul className="navbar-links">
+        <li><Link to="/">Inicio</Link></li>
+        <li><Link to="/agendar">Agendar</Link></li>
+        <li><Link to="/login">Iniciar Sesión</Link></li>
+      </ul>
+    </nav>
+  );
+}

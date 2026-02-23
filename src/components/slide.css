@@ -1,0 +1,42 @@
+/* Contenedor que recorta lo que sobra */
+.slider-viewport {
+    width: 100%;
+    max-width: 800px; /* Ajusta al ancho que desees */
+    height: 400px;    /* Ajusta al alto que desees */
+    margin: 20px auto;
+    overflow: hidden; /* Oculta las imágenes que no están activas */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* El contenedor que se mueve */
+.slider-wrapper {
+    display: flex;
+    width: 400%; /* 100% por cada imagen (incluyendo la repetida) */
+    height: 100%;
+    animation: slide-animation 12s infinite cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+
+/* Cada imagen individual */
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se deforme */
+}
+
+/* Lógica de la animación */
+@keyframes slide-animation {
+    0%   { transform: translateX(0); }         /* Imagen 1 */
+    30%  { transform: translateX(0); }
+    33%  { transform: translateX(-25%); }      /* Salto a Imagen 2 */
+    63%  { transform: translateX(-25%); }
+    66%  { transform: translateX(-50%); }      /* Salto a Imagen 3 */
+    96%  { transform: translateX(-50%); }
+    100% { transform: translateX(-75%); }      /* Salto a la copia de Imagen 1 */
+}

@@ -1,0 +1,84 @@
+/* servicios.css */
+
+.servicios-container {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.servicios-container h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* Línea decorativa debajo del título */
+.servicios-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #3498db;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Configuración de la cuadrícula */
+.servicios-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de servicio individual */
+.servicio-item {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-item h3 {
+    color: #34495e;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.servicio-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo de las imágenes */
+.servicio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Mantiene la proporción sin deformar */
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    .servicios-container {
+        padding: 2rem 1rem;
+    }
+    
+    .servicios-container h2 {
+        font-size: 2rem;
+    }
+}
