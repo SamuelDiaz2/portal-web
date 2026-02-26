@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2c3e50; /* Un azul oscuro elegante */
+    background-color: #784caa; /* Un azul oscuro elegante */
     padding: 1rem 2rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -48,10 +48,10 @@
 
 /* Estilo opcional para destacar el botón de Agendar */
 .navbar-links li:last-child a {
-    background-color: #3498db;
+    background-color: #28a23b;
     color: white;
 }
 
 .navbar-links li:last-child a:hover {
-    background-color: #2980b9;
+    background-color: #207318;
 }

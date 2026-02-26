@@ -7,8 +7,7 @@ export default function Navbar() {
       <div className="navbar-logo">Rehabilitar - C</div>
       <ul className="navbar-links">
         <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/agendar">Agendar</Link></li>
-        <li><Link to="/login">Iniciar Sesión</Link></li>
+        <li><Link to="/ingresar">Ingresar</Link></li>
       </ul>
     </nav>
   );
