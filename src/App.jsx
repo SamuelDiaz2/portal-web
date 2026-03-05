@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar'
-import Login from './pages/login'
-import Ingresar from './pages/ingresar'
-import Inicio from './pages/inicio';
-import Apk from './pages/apk';
+import Login from './pages/login/login';
+import Ingresar from './pages/ingresar/ingresar';
+import Inicio from './pages/inicio/inicio';
+import Apk from './pages/apk/apk';
+import Registro from './pages/registro';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/ingresar" element={<Ingresar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/apk" element={<Apk />} />
+          <Route path="/registro" element={<Registro />} />
         </Routes>
       </div>
     </Router>
