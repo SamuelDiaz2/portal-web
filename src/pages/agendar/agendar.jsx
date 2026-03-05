@@ -1,4 +1,4 @@
-import './Agendar.css';
+import './agendar.css';
 
 function Agendar() {
   return (
