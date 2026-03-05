@@ -22,8 +22,8 @@ function Registro() {
             }
         });
 
-        if (error) alert(error.message);
-        else alert('usuario registrado');
+        if (error) console.log(error.message);
+        else console.log('usuario registrado');
     };
 
     return (
