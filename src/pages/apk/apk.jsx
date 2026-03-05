@@ -3,6 +3,8 @@
 
 import './apk.css';
 
+
+
 const version = "1.2";
 
 function Apk() {
@@ -13,7 +15,7 @@ function Apk() {
             <h2>Versión: {version}</h2>
 
             {/* Opción 1: Enlace directo con atributo download */}
-            <a href="/app-debug.apk" download="PortalProfesionales.apk">
+            <a href="descargas/app-debug.apk" download="PortalProfesionales.apk">
                 <button className="download-button">
                     Descargar APK
                 </button>
