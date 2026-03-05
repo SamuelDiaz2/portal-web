@@ -1,83 +1,37 @@
-/* Login.css */
-
-/* Contenedor principal que centra todo en la pantalla */
-.login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 80px); /* Ajusta según el alto de tu navbar */
-    background-color: #f4f7f6; /* Gris muy claro azulado */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Título del portal */
-.login-title {
-    color: #2c3e50;
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-/* Tarjeta del formulario */
 .login-form {
-    background-color: #ffffff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
 }
 
-/* Estilo de los inputs */
 .login-input {
-    padding: 12px 15px;
-    border: 1px solid #dcdde1;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.login-input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+.login-button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Botón de Iniciar Sesión */
-.login-button, .register-button {
-    background-color: #3498db;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 10px;
+.login-button:disabled {
+  background-color: #95a5a6;
 }
 
-.login-button:hover, .register-button:hover {
-    background-color: #2980b9;
-    transform: translateY(-1px);
+.login-footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
 }
 
-.login-button:active, .register-button:active {
-    transform: translateY(1px);
-}
-
-/* Responsivo para móviles */
-@media (max-width: 480px) {
-    .login-form {
-        width: 90%;
-        padding: 1.5rem;
-    }
-    
-    .login-title {
-        font-size: 2rem;
-    }
+.register-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
 }
