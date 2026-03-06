@@ -1,5 +1,4 @@
 import './slide.css';
-import React from 'react';
 
 function SlideImages() {
 

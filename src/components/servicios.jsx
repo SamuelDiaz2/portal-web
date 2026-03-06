@@ -25,18 +25,20 @@ const serviciosData = [
 
 function Servicios() {
     return (
-        <div className="servicios-container">
-            <h2>Nuestros Servicios</h2>
-            <div className="servicios-list">
-                {serviciosData.map((servicio, index) => (
-                    <div key={index} className="servicio-item">
-                        <h3>{servicio.title}</h3>
-                        <p>{servicio.description}</p>
-                        <img src={servicio.img} alt={servicio.title} />
-                    </div>
-                ))}
+        <section className="servicios-section">
+            <div className="servicios-container">
+                <h2>Nuestros Servicios</h2>
+                <div className="servicios-list">
+                    {serviciosData.map((servicio, index) => (
+                        <div key={index} className="servicio-item">
+                            <h3>{servicio.title}</h3>
+                            <p>{servicio.description}</p>
+                            <img src={servicio.img} alt={servicio.title} />
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }
 

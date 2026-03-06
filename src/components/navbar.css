@@ -1,57 +1,176 @@
-/* navbar.css */
-
-/* Configuración general de la barra */
-.navbar {
+/* Contenedor base del Navbar */
+.navbar-container {
+    margin-top: 3.5%;  
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    padding-top: 50px; /* Espacio para que el logo sobresalga */
+    position: fixed; /* Opcional: fijo arriba */
+    top: 0;
+    z-index: 100;
+}
+
+
+/* --- EL CONTENEDOR EXPANSIBLE (MÁGIA AQUÍ) --- */
+.logo-tab-container {
+    background-color: #71b7f1;
+    position: absolute;
+    top: -30px; /* Eleva la pestaña */
+    height: 50px;
+    display: flex;
     align-items: center;
-    background-color: #784caa; /* Un azul oscuro elegante */
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center; /* Centra el logo inicialmente */
+    border-radius: 25px; /* Pastilla redondeada */
+    padding: 0 17px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave */
+    
+    /* Estado inicial contraído */
+    min-width: 160px; /* Ancho solo para el logo */
+    max-width: 160px; 
+    overflow: hidden; /* Oculta los enlaces laterales */
+    z-index: 10;
+    cursor: pointer;
 }
 
-/* Estilo del Logo */
-.navbar-logo {
-    color: #ecf0f1;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+/* --- EFECTO HOVER: Expansión Horizontal --- */
+.logo-tab-container:hover {
+  /* Se expande hacia los lados */
+    min-width: 100%; /* Toma todo el ancho de la barra negra */
+    max-width: 100%;
+    padding: 0 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Contenedor de los enlaces */
-.navbar-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px; /* Espacio entre botones */
+/* Estilo para el Logo central */
+.logo-pill {
+    flex-shrink: 0; /* Evita que el logo se contraiga */
+    padding: 0 20px;
 }
 
-/* Estilo de los enlaces (Link de react-router) */
-.navbar-links li a {
-    color: #bdc3c7;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 5px;
-}
-
-/* Efecto Hover (al pasar el mouse) */
-.navbar-links li a:hover {
-    color: #ffffff;
-    background-color: #34495e;
-    transform: translateY(-2px); /* Pequeño salto hacia arriba */
-}
-
-/* Estilo opcional para destacar el botón de Agendar */
-.navbar-links li:last-child a {
-    background-color: #28a23b;
+.logo-text {
     color: white;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
 }
 
-.navbar-links li:last-child a:hover {
-    background-color: #207318;
+/* --- LOS GRUPOS DE ENLACES (OCULTOS INICIALMENTE) --- */
+.nav-links-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    
+    /* Estado inicial oculto y contraído */
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-width 0.4s ease;
+    transition-delay: 0.1s; /* Espera un poco a que la caja negra se expanda */
+}
+
+/* --- HOVER: Muestra los enlaces --- */
+.logo-tab-container:hover .nav-links-group {
+  opacity: 1;
+  max-width: 500px; /* Un ancho lo suficientemente grande para los links */
+}
+
+/* Re-posicionamos los grupos */
+.side-left {
+  justify-content: flex-end; /* Alinea los links a la derecha de su grupo (pegados al logo) */
+}
+
+.side-right {
+  justify-content: flex-start; /* Alinea los links a la izquierda de su grupo (pegados al logo) */
+}
+
+/* Estilo de los links individuales (con el dot de Rekorder) */
+    .nav-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column; /* Punto arriba del texto */
+    align-items: center;
+    gap: 2px;
+    transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+    color: white;
+    }
+
+    .dot {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    }
+
+.nav-link.active .dot, .nav-link:hover .dot {
+  background-color: white; /* Enciende el punto */
+}
+
+    /* El botón verde */
+    .nav-button-green {
+    background-color: #2ecc71;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    }
+
+/* --- DISEÑO PARA CELULARES --- */
+@media (max-width: 768px) {
+
+    .logo-tab-container {
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+        top: -25px;
+        min-width: 180px;
+        height: 45px;
+        background-color: #71b7f1;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+
+    .logo-tab-container:active,
+        .logo-tab-container:hover {
+            height: auto;
+            min-width: 90%; /* Se expande casi a todo el ancho */
+            padding: 20px;
+            border-radius: 20px;
+    }
+
+    .nav-links-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+        gap: 20px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .logo-tab-container:hover .nav-links-group {
+        max-width: 100%; /* Permite que se vea todo el grupo vertical */
+    }
+
+    /* El logo se queda siempre arriba del menú desplegado */
+    .logo-pill {
+        height: 45px;      /* Misma altura que la pastilla cerrada */
+        display: flex;
+        align-items: center; /* Centrado vertical del texto dentro de esos 45px */
+        justify-content: center;
+        margin-top: 37px;
+        order: -1;    /* Evita que el logo se aplaste al expandir */
+    }
 }
