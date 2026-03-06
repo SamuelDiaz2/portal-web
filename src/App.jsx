@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// 1. Cambiamos BrowserRouter por HashRouter
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar'
 import Login from './pages/login/login';
 import Ingresar from './pages/ingresar/ingresar';
@@ -9,10 +10,10 @@ import Agendar from './pages/agendar/agendar';
 
 function App() {
   return (
-    <Router basename="/portal-web">
+    
+    <Router>
       <div className="App">
         <Navbar />
-        {/* Aquí es donde "aterrizan" los componentes al navegar */}
         <Routes>
           <Route path="/" element={<Navigate to="/inicio" replace />} />
 
@@ -30,4 +31,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
