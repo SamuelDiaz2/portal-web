@@ -1,21 +1,32 @@
 .vision-section {
     width: 100%;
     padding: 80px 0;
-    display: flex;
+    display: inline;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff; /* Fondo blanco para alternar con Misión */
+    background-color: #f9f9f9;
+}
+
+.vision-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #3498db;
+    margin: 10px auto 40px auto;
+    border-radius: 2px;
 }
 
 .vision-container {
     display: flex;
     width: 90%;
-    max-width: 1100px;
+    max-width: 900px;
     background: #fdfdfd;
-    border-radius: 35px; /* Bordes muy redondeados */
+    border-radius: 30px; /* Bordes muy redondeados */
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     align-items: stretch;
+    margin: 0 auto; /* Centra el contenedor */
 }
 
 /* --- TEXTO A LA IZQUIERDA --- */
@@ -29,20 +40,22 @@
     text-align: right; /* Texto justificado a la derecha */
     gap: 15px;
 }
-
+    
 .vision-subtitle {
     color: #2ecc71; /* Verde éxito para diferenciar de Misión */
-    font-size: 11px;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 2px;
+    position: relative;
 }
 
 .vision-title {
-    color: #0a0a0a;
+    margin-bottom: 3rem;
+    color: #2c3e50;
     font-size: 2.5rem;
     font-weight: 900;
     font-style: italic; /* Siguiendo el logo de REHABILITAR */
-    margin: 0;
+    text-align: center;
 }
 
 .vision-description {
@@ -84,7 +97,7 @@
     }
 
     .vision-text-container {
-        padding: 35px;
+        padding: 30px;
         align-items: center;
         text-align: center;
     }

@@ -1,5 +1,6 @@
 
 .slider-viewport {
+    background-color: #f9f9f9;
     width: 100%;
     max-width: 800px; /* Ajusta al ancho que desees */
     height: 400px;    /* Ajusta al alto que desees */

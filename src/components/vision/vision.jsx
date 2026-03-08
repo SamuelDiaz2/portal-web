@@ -1,15 +1,14 @@
 import './vision.css';
- 
 
 function Vision() {
     return (
         <section className="vision-section">
+            <h2 className="vision-title">Visión</h2>
             <div className="vision-container">
-
+                
                 {/* LADO IZQUIERDO: Texto */}
                 <div className="vision-text-container">
                     <span className="vision-subtitle">NUESTRA META</span>
-                        <h2 className="vision-title">Visión</h2>
                         <p className="vision-description">
                             Ser considerados los mejores en nuestro campo por la atención y servicio 
                             prestados a nuestros pacientes por medio de la confianza que brindan 

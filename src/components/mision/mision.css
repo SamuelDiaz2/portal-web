@@ -1,23 +1,35 @@
+
 /* Contenedor principal de la sección */
 .mision-section {
     width: 100%;
     padding: 80px 0;
-    display: flex;
+    display: inline;
     justify-content: center;
     align-items: center;
     background-color: #f9f9f9; /* Fondo claro para resaltar */
+}
+
+.mision-section h2::after{
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #3498db;
+    margin: 10px auto 40px auto;
+    border-radius: 2px;
 }
 
 /* El contenedor que une imagen y texto */
 .mision-container {
     display: flex;
     width: 90%;
-    max-width: 1100px; /* Ancho máximo para que no se estire demasiado */
+    max-width: 900px; /* Ancho máximo para que no se estire demasiado */
     background: white;
     border-radius: 30px; /* Estilo pastilla */
     overflow: hidden; /* Corta todo lo que se salga de los bordes redondeados */
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     align-items: stretch; /* Asegura que ambos lados tengan la misma altura */
+    margin: 0 auto; /* Centra el contenedor */
 }
 
 /* --- LADO DE LA IMAGEN CON CORTE --- */
@@ -53,18 +65,18 @@
 
 .mision-subtitle {
     color: #74b9ff; /* Azul de REHABILITAR */
-    font-size: 11px;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 2px;
 }
 
 .mision-title {
-    color: #0a0a0a; /* Negro Rekorder */
+    margin-bottom: 3rem;
+    color: #2c3e50;
     font-size: 2.5rem;
     font-weight: 900;
-    font-style: italic; /* Siguiendo el logo */
-    margin: 0;
-    letter-spacing: -1px;
+    font-style: italic; /* Siguiendo el logo de REHABILITAR */
+    text-align: center;
 }
 
 .mision-description {
@@ -97,9 +109,5 @@
         padding: 30px; /* Reduce el espacio en móvil */
         align-items: center; /* Centra el texto */
         text-align: center;
-    }
-
-    .mision-title {
-        font-size: 2rem;
     }
 }

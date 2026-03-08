@@ -5,6 +5,7 @@ import './mision.css';
 function Mision() {
     return (
         <section className="mision-section">
+            <h2 className="mision-title">Misión</h2>
             <div className="mision-container">
         
                 {/* Contenedor de la imagen con el corte diagonal */}
@@ -14,7 +15,6 @@ function Mision() {
                     {/* Bloque de texto de la misión */}
                 <div className="mision-text-container">
                     <span className="mision-subtitle">NUESTRA PASIÓN</span>
-                        <h2 className="mision-title">Misión</h2>
                         <p className="mision-description">
                             Ofrecer nuestros servicios de salud a las personas de todo Cundinamarca, 
                             de nuestros pacientes y cumplir con las expectativas para tener un 
