@@ -1,6 +1,6 @@
 // 1. Cambiamos BrowserRouter por HashRouter
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/navbar'
+import Navbar from './components/navbar/navbar'
 import Login from './pages/login/login';
 import Ingresar from './pages/ingresar/ingresar';
 import Inicio from './pages/inicio/inicio';

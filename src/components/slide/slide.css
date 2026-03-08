@@ -1,15 +1,9 @@
-/* Contenedor que recorta lo que sobra */
-body {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f0f0f0; /* Un fondo claro para resaltar el slider */
-}
 
 .slider-viewport {
     width: 100%;
     max-width: 800px; /* Ajusta al ancho que desees */
     height: 400px;    /* Ajusta al alto que desees */
-    margin: 20px auto;
+    margin: 45px auto;
     overflow: hidden; /* Oculta las imágenes que no están activas */
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);

@@ -3,8 +3,6 @@
 body {
     font-family: 'PT Sans Caption', sans-serif;
     background-color: #f0f0f0; /* Un fondo claro para resaltar los botones */
-    margin: 0;
-    padding: 0;
 }
 
 .ingresar-container {
@@ -26,7 +24,7 @@ body {
     color: white;
 }
 
-img {
+.ingresar-container img {
     width: 100px; /* Ajusta el tamaño de las imágenes */
     height: 100px;
     object-fit: cover; /* Asegura que la imagen mantenga su proporción */
@@ -40,6 +38,19 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
+    border-radius: 10%;
+}
+
+.ingresar-container button:hover {
+    opacity: 0.8;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .ingresar-container {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        gap: 20px; /* Reduce el espacio entre los botones */
+    }
 }

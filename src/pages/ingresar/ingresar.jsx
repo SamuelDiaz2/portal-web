@@ -19,10 +19,6 @@ function Ingresar() {
             </Link></button>
             <h2>Paciente</h2>
         </div>
-        <div className="Admin">
-            <button><Link to="/registro">Admin</Link></button>
-
-        </div>
         </section>
     );
 }

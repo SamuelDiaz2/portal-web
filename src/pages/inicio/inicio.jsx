@@ -1,6 +1,6 @@
 
-import SlideImages from '../../components/slide';
-import Servicios from '../../components/servicios';
+import SlideImages from '../../components/slide/slide';
+import Servicios from '../../components/servicios/servicios';
 
 
 function Inicio() {
