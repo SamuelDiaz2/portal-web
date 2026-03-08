@@ -4,17 +4,26 @@ import { Link } from 'react-router-dom';
 
 function Ingresar() {
     return (
-        <>
-        <div className="Fisioterapeuta">
-            <button><Link to="/apk">Fisioterapeuta</Link></button>
+        <section className="ingresar-container">
+        <div className="Profesional">
+            <button>
+                <Link to="/apk">
+                    <img src="https://cdn-icons-png.flaticon.com/512/998/998412.png " alt="Profesional" />
+                </Link>
+            </button>
+            <h2>Profesional</h2>
         </div>
         <div className="Paciente">
-            <button><Link to="/login">Paciente</Link></button>
+            <button><Link to="/login">
+                <img src="https://cdn-icons-png.flaticon.com/512/709/709699.png" alt="Paciente" />
+            </Link></button>
+            <h2>Paciente</h2>
         </div>
         <div className="Admin">
             <button><Link to="/registro">Admin</Link></button>
+
         </div>
-        </>
+        </section>
     );
 }
 

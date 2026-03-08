@@ -25,8 +25,8 @@
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave */
     
     /* Estado inicial contraído */
-    min-width: 160px; /* Ancho solo para el logo */
-    max-width: 160px; 
+    min-width: 170px; /* Ancho solo para el logo */
+    max-width: 170px; 
     overflow: hidden; /* Oculta los enlaces laterales */
     z-index: 10;
     cursor: pointer;
@@ -35,7 +35,7 @@
 /* --- EFECTO HOVER: Expansión Horizontal --- */
 .logo-tab-container:hover {
   /* Se expande hacia los lados */
-    min-width: 100%; /* Toma todo el ancho de la barra negra */
+    min-width: 30%; /* Toma todo el ancho de la barra negra */
     max-width: 100%;
     padding: 0 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -132,13 +132,12 @@
         justify-content: center;
         padding: 0;
         position: relative;
-        top: -25px;
+        top: -46px;
         min-width: 180px;
         height: 45px;
         background-color: #71b7f1;
         border-radius: 25px;
         display: flex;
-        flex-direction: column;
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -147,14 +146,14 @@
     .logo-tab-container:active,
         .logo-tab-container:hover {
             height: auto;
-            min-width: 90%; /* Se expande casi a todo el ancho */
+            min-width: 76%; /* Se expande casi a todo el ancho */
             padding: 20px;
             border-radius: 20px;
+            justify-content: center;
     }
 
     .nav-links-group {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas */
+        display: flex;
         gap: 20px;
         width: 100%;
         margin-top: 20px;
@@ -162,15 +161,5 @@
 
     .logo-tab-container:hover .nav-links-group {
         max-width: 100%; /* Permite que se vea todo el grupo vertical */
-    }
-
-    /* El logo se queda siempre arriba del menú desplegado */
-    .logo-pill {
-        height: 45px;      /* Misma altura que la pastilla cerrada */
-        display: flex;
-        align-items: center; /* Centrado vertical del texto dentro de esos 45px */
-        justify-content: center;
-        margin-top: 37px;
-        order: -1;    /* Evita que el logo se aplaste al expandir */
     }
 }

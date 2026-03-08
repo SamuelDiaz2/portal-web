@@ -12,9 +12,6 @@ export default function Navbar() {
             <NavLink to="/inicio" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
               <span className="dot"></span> INICIO 
             </NavLink>
-            <NavLink to="/agendar" className="nav-link">
-              <span className="dot"></span> AGENDAR
-            </NavLink>
           </div>
 
           {/* El Logo Central */}
@@ -24,9 +21,6 @@ export default function Navbar() {
 
           {/* Grupo de enlaces Derecho (inicialmente oculto) */}
           <div className="nav-links-group side-right">
-            <NavLink to="/apk" className="nav-link">
-              <span className="dot"></span> DESCARGAR APP
-            </NavLink>
             <NavLink to="/ingresar" className="nav-button-green">
               INGRESAR
             </NavLink>
