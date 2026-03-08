@@ -1,0 +1,31 @@
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px; /* Espacio para el navbar */
+}
+
+.form-card-registro {
+  background: white;
+  padding: 40px;
+  border-radius: 30px; /* Estilo pastilla */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.btn-registro {
+  width: 100%;
+  padding: 14px;
+  background-color: #0a0a0a; /* Negro Rekorder */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-registro:hover {
+  background-color: #74b9ff; /* Azul del logo al hacer hover */
+}

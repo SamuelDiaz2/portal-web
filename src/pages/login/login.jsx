@@ -7,7 +7,6 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,15 +14,20 @@ function Login() {
 
     // Intentar iniciar sesión en Supabase
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
+      email,
+      password,
     });
 
     if (error) {
       alert("Error al iniciar sesión: " + error.message);
     } else {
+
+      const nombreUsuario = data.user.user_metadata.nombre_completo || "Usuario";
+
+      localStorage.setItem('nombreUsuario', nombreUsuario); // Guardar el nombre en localStorage para mostrarlo en Inicio
+
       console.log("Usuario logueado:", data);
-      navigate('/agendar'); // Redirige a la página principal tras el éxito
+      window.location.hash = '/dashboard'; // Redirige a la página principal tras el éxito
     }
     setLoading(false);
   };

@@ -1,0 +1,66 @@
+.agendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px; /* Estilo pastilla */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-title {
+    color: #0a0a0a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-style: italic; /* Siguiendo el logo */
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input, select {
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #74b9ff; /* Azul de REHABILITAR */
+}
+
+.btn-agendar {
+    width: 100%;
+    padding: 15px;
+    background-color: #0a0a0a; /* Negro como el Navbar */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-agendar:hover {
+    background-color: #2ecc71; /* Verde éxito al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}

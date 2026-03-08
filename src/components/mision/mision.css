@@ -1,0 +1,105 @@
+/* Contenedor principal de la sección */
+.mision-section {
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9; /* Fondo claro para resaltar */
+}
+
+/* El contenedor que une imagen y texto */
+.mision-container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px; /* Ancho máximo para que no se estire demasiado */
+    background: white;
+    border-radius: 30px; /* Estilo pastilla */
+    overflow: hidden; /* Corta todo lo que se salga de los bordes redondeados */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    align-items: stretch; /* Asegura que ambos lados tengan la misma altura */
+}
+
+/* --- LADO DE LA IMAGEN CON CORTE --- */
+.mision-image-container {
+    flex: 1; /* Ocupa la mitad del espacio */
+    position: relative;
+    overflow: hidden;
+}
+
+.mision-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    
+    /* EL TRUCO: Crea un corte diagonal */
+    /* polygon(x1 y1, x2 y2, x3 y3, x4 y4) */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    
+    /* Opcional: añade un degradado suave sobre la imagen */
+    filter: brightness(0.9);
+}
+
+/* --- LADO DEL TEXTO --- */
+.mision-text-container {
+    flex: 1; /* Ocupa la otra mitad del espacio */
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical real para que el texto no se suba */
+    align-items: flex-start; /* Alineación a la izquierda */
+    gap: 15px; /* Espaciado entre elementos */
+}
+
+.mision-subtitle {
+    color: #74b9ff; /* Azul de REHABILITAR */
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.mision-title {
+    color: #0a0a0a; /* Negro Rekorder */
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-style: italic; /* Siguiendo el logo */
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.mision-description {
+    color: #555; /* Gris suave para lectura */
+    font-size: 1.1rem;
+    line-height: 1.6; /* Interlineado para mejor lectura */
+    margin: 10px 0;
+}
+
+.mision-btn:hover {
+    background-color: #2ecc71; /* Verde éxito al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+/* --- DISEÑO RESPONSIVO (CELULAR) --- */
+@media (max-width: 768px) {
+
+    .mision-container {
+        flex-direction: column; /* Apila imagen sobre texto */
+        width: 95%;
+    }
+
+    .mision-image {
+        height: 250px; /* Altura fija para la imagen en móvil */
+        /* Cambiamos el corte para que sea horizontal en móvil */
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    }
+
+    .mision-text-container {
+        padding: 30px; /* Reduce el espacio en móvil */
+        align-items: center; /* Centra el texto */
+        text-align: center;
+    }
+
+    .mision-title {
+        font-size: 2rem;
+    }
+}

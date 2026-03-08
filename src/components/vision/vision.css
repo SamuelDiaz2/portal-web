@@ -1,0 +1,91 @@
+.vision-section {
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Fondo blanco para alternar con Misión */
+}
+
+.vision-container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    background: #fdfdfd;
+    border-radius: 35px; /* Bordes muy redondeados */
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    align-items: stretch;
+}
+
+/* --- TEXTO A LA IZQUIERDA --- */
+.vision-text-container {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical para evitar que el texto suba */
+    align-items: flex-end; /* Alineamos el texto a la derecha para que "mire" a la imagen */
+    text-align: right; /* Texto justificado a la derecha */
+    gap: 15px;
+}
+
+.vision-subtitle {
+    color: #2ecc71; /* Verde éxito para diferenciar de Misión */
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.vision-title {
+    color: #0a0a0a;
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-style: italic; /* Siguiendo el logo de REHABILITAR */
+    margin: 0;
+}
+
+.vision-description {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 450px;
+}
+
+.vision-btn:hover {
+    background-color: #0a0a0a;
+    color: white;
+}
+
+/* --- IMAGEN A LA DERECHA CON CORTE --- */
+.vision-image-container {
+    flex: 1;
+    position: relative;
+}
+
+.vision-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* CORTE DIAGONAL INVERSO: El corte empieza desde la izquierda */
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    filter: saturate(1.2);
+}
+
+/* --- RESPONSIVO PARA CELULAR --- */
+@media (max-width: 768px) {
+    .vision-container {
+        flex-direction: column-reverse; /* Imagen arriba, texto abajo en móvil */
+    }
+
+    .vision-image {
+        height: 250px;
+        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); /* Corte horizontal inverso */
+    }
+
+    .vision-text-container {
+        padding: 35px;
+        align-items: center;
+        text-align: center;
+    }
+}

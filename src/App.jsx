@@ -5,8 +5,9 @@ import Login from './pages/login/login';
 import Ingresar from './pages/ingresar/ingresar';
 import Inicio from './pages/inicio/inicio';
 import Apk from './pages/apk/apk';
-import Registro from './pages/registro';
+import Registro from './pages/registro/registro';
 import Agendar from './pages/agendar/agendar';
+import Dashboard from './pages/dashboard/dashboard';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/apk" element={<Apk />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/agendar" element={<Agendar />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="*" element={<Navigate to="/inicio" replace />} />
         </Routes>
