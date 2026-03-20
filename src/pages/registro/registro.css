@@ -1,8 +1,8 @@
-.registro-container {
+.register-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px; /* Espacio para el navbar */
+  padding: 120px 20px; /* Espacio para el navbar */
 }
 
 .form-card-registro {

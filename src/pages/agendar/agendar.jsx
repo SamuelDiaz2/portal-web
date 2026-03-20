@@ -7,6 +7,7 @@ function Agendar() {
   const [formData, setFormData] = useState({
     nombre: localStorage.getItem('nombreUsuario') || '',
     servicio: localStorage.getItem('servicioUsuario') || 'Fisioterapia',
+    modalidad: '',
     fecha: '',
     hora: ''
   });
@@ -22,7 +23,8 @@ function Agendar() {
           nombre_paciente: formData.nombre, 
           servicio: formData.servicio, 
           fecha: formData.fecha, 
-          hora: formData.hora 
+          hora: formData.hora,
+          modalidad: formData.modalidad
         }
       ]);
 
@@ -30,7 +32,9 @@ function Agendar() {
       alert("Error al agendar: " + error.message);
     } else {
       alert("¡Cita agendada con éxito!");
-      setFormData({ nombre: '', servicio: 'Fisioterapia', fecha: '', hora: '' });
+      console.log('Cita agendada:', formData);
+      window.location.hash = '/dashboard';
+      setFormData({ nombre: '', servicio: 'Fisioterapia', fecha: '', hora: '', modalidad: '' });
     }
     setLoading(false);
   };
@@ -84,7 +88,19 @@ function Agendar() {
             </div>
           </div>
 
-          <button type="submit" className="btn-agendar" disabled={loading}>
+          <div className="input-group">
+            <label>Modalidad</label>
+            <select
+              value={formData.modalidad}
+              onChange={(e) => setFormData({...formData, modalidad: e.target.value})}
+            >
+              <option value="seleccionar">Seleccionar modalidad</option>
+              <option value="30-minutos">30 minutos</option>
+              <option value="50-minutos">50 minutos</option>
+            </select>
+          </div>
+
+          <button type="submit" className="btn-agendar" disabled={loading} >
             {loading ? 'Procesando...' : 'Confirmar Cita'}
           </button>
         </form>
