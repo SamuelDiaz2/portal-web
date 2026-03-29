@@ -24,13 +24,6 @@ export default function Navbar() {
               INGRESAR
             </NavLink>
           </div>
-
-          <div className="nav-links-group side-right">
-            <NavLink to="/registro" className="nav-button-blue">
-              REGISTRARSE
-            </NavLink>
-          </div>
-
         </div>
     </nav>
   );

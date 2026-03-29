@@ -1,0 +1,38 @@
+.footer {
+    margin-top: 20px;
+    background-color: #71b7f1;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 15px;
+}
+
+.section1 {
+    display: inline-block;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    margin-right: 30px;
+}
+
+.section2 {
+    display: inline-block;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.section2 img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+.section3 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+

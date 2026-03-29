@@ -49,9 +49,6 @@ function Registro() {
             alert("Error: " + error.message);
         } else {
 
-            const servicioAdquirido = data.user.user_metadata.servicio || "Servicio no especificado";
-            localStorage.setItem('servicioUsuario', servicioAdquirido); // Guardar el servicio en localStorage para mostrarlo en Inicio
-
             console.log('usuario registrado');
             alert("¡Registro exitoso! Revisa tu correo de confirmación.");
         }

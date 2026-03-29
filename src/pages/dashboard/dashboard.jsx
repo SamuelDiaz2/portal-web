@@ -1,6 +1,7 @@
 import { supabase } from "../../lib/supabase";
 import { useState, useEffect } from "react"; // 1. Importamos hooks
 import './dashboard.css';
+import { data } from "react-router-dom";
 
 function Dashboard() {
     // 2. Definimos el estado para las citas
@@ -9,6 +10,7 @@ function Dashboard() {
 
     const nombre = localStorage.getItem('nombreUsuario') || "Paciente"; // Usa el mismo nombre que guardamos en Login
     const servicioInteres = localStorage.getItem('servicioUsuario') || "Salud";
+    const numeroidentificacion = localStorage.getItem('identificacionUsuario') || "N/A"; // Obtenemos el número de identificación para filtrar citas
 
     // 3. Función para cargar datos
     async function fetchCitas() {
@@ -16,7 +18,7 @@ function Dashboard() {
         const { data, error } = await supabase
             .from('citas')
             .select('*')
-            .eq('nombre_paciente', nombre) // Filtramos por el nombre del paciente
+            .eq('identificacion', numeroidentificacion) // Filtramos por el ID del paciente
             .order('fecha', { ascending: true }); // Ordenar por fecha
 
 

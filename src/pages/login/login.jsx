@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../../lib/supabase'; // Asegúrate de que la ruta sea correcta
+import { supabase } from '../../lib/supabase';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 
@@ -22,11 +22,11 @@ function Login() {
       alert("Error al iniciar sesión: " + error.message);
     } else {
 
-      const nombreUsuario = data.user.user_metadata.nombre_completo || "Usuario";
-
+      const nombreUsuario = data.user.user_metadata.nombre_completo || "Usuario";   
       localStorage.setItem('nombreUsuario', nombreUsuario); // Guardar el nombre en localStorage para mostrarlo en Inicio
 
-      console.log("Usuario logueado:", data);
+
+      console.log("Usuario logueado:", data.user);
       window.location.hash = '/dashboard'; // Redirige a la página principal tras el éxito
     }
     setLoading(false);
