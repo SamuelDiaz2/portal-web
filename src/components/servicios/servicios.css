@@ -90,10 +90,6 @@
 }
 
 
-.servicio-item:hover {
-    transform: translateY(-5px);
-}
-
 .btn-servicio:hover {
     background-color: #74b9ff;
     color: #0a0a0a;
@@ -130,6 +126,7 @@
     object-fit: cover;
     border-radius: 20px; /* Redondeado interno */
     margin-bottom: 1.5rem;
+    object-position: top;
 }
 
 .servicio-item h3 {
