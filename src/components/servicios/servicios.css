@@ -25,51 +25,127 @@
     border-radius: 2px;
 }
 
-/* Configuración de la cuadrícula */
+
+
 .servicios-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    padding: 0 5%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    animation: slideInLeft 0.5s ease-out;
+    overflow-x: auto;
+}
+
+.eleccion-servicios {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* El contenedor ovalado gris */
+.segmented-control {
+    position: relative;
+    display: flex;
+    background-color: #f0f0f0; /* Color gris de fondo */
+    width: 300px;
+    height: 50px;
+    border-radius: 25px; /* Forma de pastilla */
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+/* La pastilla negra que se desliza */
+.indicator {
+    position: absolute;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    background-color: #a031c5; /* Negro sólido */
+    border-radius: 20px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* Mueve la pastilla a la derecha */
+.move-right {
+    transform: translateX(100%);
+}
+
+/* Los botones transparentes encima del indicador */
+.btn-tab {
+    flex: 1;
+    border: none;
+    background: none;
+    z-index: 2; /* Por encima del indicador */
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    color: #888; /* Gris para el que no está seleccionado */
+    transition: color 0.3s;
+}
+
+/* El texto se vuelve blanco cuando la pastilla negra está debajo */
+.btn-tab.active {
+    color: #ffffff;
+}
+
+
+.servicio-item:hover {
+    transform: translateY(-5px);
+}
+
+.btn-servicio:hover {
+    background-color: #74b9ff;
+    color: #0a0a0a;
+}
+
+.categoria-label {
+    font-size: 0.9rem;
+    color: #555;
 }
 
 /* Tarjeta de servicio individual */
 .servicio-item {
+    flex: 0 0 300px; /* No se encogen, ancho fijo de 300px */
+    scroll-snap-align: center; /* Se detienen en el centro al deslizar */
     background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 30px; /* Estilo pastilla */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
 }
 
 .servicio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: #74b9ff; /* Resalte azul al pasar el mouse */
 }
 
-.servicio-item h3 {
-    color: #34495e;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.servicio-item p {
-    color: #7f8c8d;
-    line-height: 1.6;
+/* Imagen con bordes internos redondeados */
+.servicio-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px; /* Redondeado interno */
     margin-bottom: 1.5rem;
 }
 
-/* Estilo de las imágenes */
-.servicio-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Mantiene la proporción sin deformar */
-    border-radius: 10px;
-    border: 1px solid #eee;
+.servicio-item h3 {
+    color: #0a0a0a; /* Negro sólido como el Navbar */
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-style: italic; /* Siguiendo la línea del logo */
+    padding: 0 10px;
+}
+
+.servicio-item p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    padding: 0 10px 1rem 10px;
 }
 
 /* Ajustes para pantallas pequeñas */
