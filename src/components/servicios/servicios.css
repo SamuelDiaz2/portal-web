@@ -48,11 +48,12 @@
     position: relative;
     display: flex;
     background-color: #f0f0f0; /* Color gris de fondo */
-    width: 360px;
     height: 50px;
     border-radius: 25px; /* Forma de pastilla */
     padding: 5px;
     border: 1px solid #ddd;
+    width: 100%; 
+    max-width: 400px;
 }
 
 /* La pastilla negra que se desliza */
@@ -73,12 +74,12 @@
 
 /* Posición para Respiratoria (Derecha) */
 .move-right {
-    transform: translateX(211%);
+    transform: translateX(210%);
 }
 
 /* Los botones transparentes encima del indicador */
 .btn-tab {
-    flex: 1;
+    flex: 1 1 0;
     border: none;
     background: none;
     z-index: 2;
@@ -87,6 +88,13 @@
     font-size: 14px;
     color: #888;
     transition: color 0.3s;
+
+    /* AJUSTES DE TEXTO CRÍTICOS */
+    font-size: clamp(10px, 3vw, 14px); /* El texto se encoge solo según el ancho de pantalla */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Si de plano no cabe, pone "Respira..." en vez de romperse */
+    padding: 0 2px;
 }
 
 
