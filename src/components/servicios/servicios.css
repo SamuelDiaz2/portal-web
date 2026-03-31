@@ -48,7 +48,7 @@
     position: relative;
     display: flex;
     background-color: #f0f0f0; /* Color gris de fondo */
-    width: 300px;
+    width: 360px;
     height: 50px;
     border-radius: 25px; /* Forma de pastilla */
     padding: 5px;
@@ -58,17 +58,22 @@
 /* La pastilla negra que se desliza */
 .indicator {
     position: absolute;
-    width: calc(50% - 5px);
+    width: calc(33.33% - 7px);
     height: calc(100% - 10px);
     background-color: #a031c5; /* Negro sólido */
     border-radius: 20px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
     z-index: 1;
 }
 
-/* Mueve la pastilla a la derecha */
-.move-right {
+/* Posición para Psicología (Centro) */
+.move-center {
     transform: translateX(100%);
+}
+
+/* Posición para Respiratoria (Derecha) */
+.move-right {
+    transform: translateX(211%);
 }
 
 /* Los botones transparentes encima del indicador */
@@ -76,15 +81,15 @@
     flex: 1;
     border: none;
     background: none;
-    z-index: 2; /* Por encima del indicador */
+    z-index: 2;
     cursor: pointer;
     font-weight: 700;
     font-size: 14px;
-    color: #888; /* Gris para el que no está seleccionado */
+    color: #888;
     transition: color 0.3s;
 }
 
-/* El texto se vuelve blanco cuando la pastilla negra está debajo */
+
 .btn-tab.active {
     color: #ffffff;
 }
@@ -103,7 +108,6 @@
 /* Tarjeta de servicio individual */
 .servicio-item {
     flex: 0 0 300px; /* No se encogen, ancho fijo de 300px */
-    scroll-snap-align: center; /* Se detienen en el centro al deslizar */
     background-color: #ffffff;
     border-radius: 30px; /* Estilo pastilla */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
@@ -153,5 +157,9 @@
     
     .servicios-container h2 {
         font-size: 2rem;
+    }
+
+    .servicio-item {
+        scroll-snap-align: center; /* Se detienen en el centro al deslizar */
     }
 }

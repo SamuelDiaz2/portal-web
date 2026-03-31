@@ -18,8 +18,11 @@ function Servicios() {
                 {/* --- NUEVO SELECTOR SEGMENTADO --- */}
                 <div className='eleccion-servicios'>
                     <div className="segmented-control">
-                        {/* El indicador es la "pastilla" negra que se mueve detras */}
-                        <div className={`indicator ${categoriaActual === "Psicología" ? "move-right" : ""}`}></div>
+                        
+                        <div className={`indicator ${
+                            categoriaActual === "Psicología" ? "move-center" :
+                            categoriaActual === "Respiratoria" ? "move-right" : ""
+                        }`}></div>
                         
                         <button
                             className={`btn-tab ${categoriaActual === "Física" ? "active" : ""}`}
@@ -33,6 +36,13 @@ function Servicios() {
                             onClick={() => setCategoriaActual("Psicología")}
                         >
                             Psicología
+                        </button>
+                        
+                        <button 
+                            className={`btn-tab ${categoriaActual === "Respiratoria" ? "active" : ""}`}
+                            onClick={() => setCategoriaActual("Respiratoria")}
+                        >
+                            Respiratoria
                         </button>
                     </div>
                 </div>
