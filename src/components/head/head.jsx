@@ -1,6 +1,6 @@
-import './slide.css';
+import './head.css';
 
-function SlideImages() {
+function Head() {
 
     const imagenes = [
     {
@@ -39,4 +39,4 @@ function SlideImages() {
     );
 }
 
-export default SlideImages;
+export default Head;

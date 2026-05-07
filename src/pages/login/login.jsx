@@ -22,10 +22,6 @@ function Login() {
       alert("Error al iniciar sesión: " + error.message);
     } else {
 
-      const nombreUsuario = data.user.user_metadata.nombre_completo || "Usuario";   
-      localStorage.setItem('nombreUsuario', nombreUsuario); // Guardar el nombre en localStorage para mostrarlo en Inicio
-
-
       console.log("Usuario logueado:", data.user);
       window.location.hash = '/dashboard'; // Redirige a la página principal tras el éxito
     }

@@ -1,52 +1,61 @@
 import { supabase } from "../../lib/supabase";
-import { useState, useEffect } from "react"; // 1. Importamos hooks
+import { useState, useEffect } from "react";
 import './dashboard.css';
-import { data } from "react-router-dom";
 
 function Dashboard() {
-    // 2. Definimos el estado para las citas
     const [citas, setCitas] = useState([]);
     const [loading, setLoading] = useState(true);
+    // 1. Creamos un estado para el perfil del usuario
+    const [userProfile, setUserProfile] = useState({
+        nombre: "Paciente",
+        servicioInteres: "nuestros servicios",
+        numeroidentificacion: ""
+    });
 
-    const nombre = localStorage.getItem('nombreUsuario') || "Paciente"; // Usa el mismo nombre que guardamos en Login
-    const servicioInteres = localStorage.getItem('servicioUsuario') || "Salud";
-    const numeroidentificacion = localStorage.getItem('identificacionUsuario') || "N/A"; // Obtenemos el número de identificación para filtrar citas
-
-    // 3. Función para cargar datos
-    async function fetchCitas() {
+    // 2. Función para obtener datos (mejorada)
+    async function fetchAllData() {
         setLoading(true);
-        const { data, error } = await supabase
-            .from('citas')
-            .select('*')
-            .eq('identificacion', numeroidentificacion) // Filtramos por el ID del paciente
-            .order('fecha', { ascending: true }); // Ordenar por fecha
+        
+        // Obtenemos el usuario de la sesión
+        const { data: { user }, error: userError } = await supabase.auth.getUser();
 
+        if (user) {
+            const nombre = user.user_metadata?.nombre_completo || "Paciente";
+            const servicio = user.user_metadata?.servicio_interes || "nuestros servicios";
+            const id = user.user_metadata?.numero_identificacion || "";
 
-        if (error) {
-            console.error("Error al cargar citas:", error);
-        } else {
-            setCitas(data); // 4. Guardamos los datos en el estado
+            // Guardamos el perfil en el estado
+            setUserProfile({ nombre, servicioInteres: servicio, numeroidentificacion: id });
+
+            // Ahora cargamos las citas usando ese ID
+            const { data, error: citasError } = await supabase
+                .from('citas')
+                .select('*')
+                .eq('identificacion', id)
+                .order('fecha', { ascending: true });
+
+            if (!citasError) setCitas(data);
         }
+        
         setLoading(false);
     }
 
-    // 5. Llamamos a la función al montar el componente
     useEffect(() => {
-        fetchCitas();
+        fetchAllData();
     }, []);
 
     return (
         <div className="dashboard-container">
             <div className="dashboard-header">
-                <h1>Bienvenido, {nombre}</h1>
-                <p>Gestiona tus servicios de {servicioInteres} y consulta tus horarios.</p>
+                {/* 3. Usamos los datos del estado userProfile */}
+                <h1>Bienvenido, {userProfile.nombre}</h1>
+                <p>Gestiona tus servicios de {userProfile.servicioInteres} y consulta tus horarios.</p>
             </div>
             
             <div className="citas-section">
                 <h2>Próximas Citas</h2>
-                
                 {loading ? (
-                    <p>Cargando tus citas...</p>
+                    <p>Cargando datos...</p>
                 ) : citas.length > 0 ? (
                     <div className="citas-grid">
                         {citas.map((cita) => (
