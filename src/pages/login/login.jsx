@@ -22,7 +22,7 @@ function Login() {
       alert("Error al iniciar sesión: " + error.message);
     } else {
 
-      console.log("Usuario logueado:", data.user);
+      console.log("Usuario logueado:");
       window.location.hash = '/dashboard'; // Redirige a la página principal tras el éxito
     }
     setLoading(false);

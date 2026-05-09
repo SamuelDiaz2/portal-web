@@ -1,19 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import './agendar.css';
 
 function Agendar() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    nombre: localStorage.getItem('nombreUsuario') || '',
-    servicio: localStorage.getItem('servicioUsuario') || 'Fisioterapia',
+    nombre: '',
+    servicio: '',
+    identificacion: '',
     modalidad: '',
     fecha: '',
-    hora: ''
+    hora: '09:00'
   });
+  
+
+  // variables para limitar la selección de fecha a los próximos 30 días
+  const fechaMin = new Date().toISOString().split('T')[0];
+  const fechaMax = new Date();
+  fechaMax.setDate(fechaMax.getDate() + 30);
+  const fechaMaxStr = fechaMax.toISOString().split('T')[0];
+
+  useEffect(() => {
+    async function getProfile() {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setFormData(prev => ({
+          ...prev,
+          nombre: user.user_metadata?.nombre_completo || '',
+          servicio: user.user_metadata?.servicio || '',
+          identificacion: user.user_metadata?.numero_identificacion || '',
+          modalidad: user.user_metadata?.modalidad || ''
+        }));
+      }
+    }
+    getProfile();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.modalidad === 'seleccionar') return alert("Selecciona una modalidad");
+
     setLoading(true);
 
     const { error } = await supabase
@@ -22,9 +48,11 @@ function Agendar() {
         { 
           nombre_paciente: formData.nombre, 
           servicio: formData.servicio, 
+          identificacion: formData.identificacion,
           fecha: formData.fecha, 
           hora: formData.hora,
-          modalidad: formData.modalidad
+          modalidad: formData.modalidad,
+          estado: 'pendiente'
         }
       ]);
 
@@ -32,9 +60,7 @@ function Agendar() {
       alert("Error al agendar: " + error.message);
     } else {
       alert("¡Cita agendada con éxito!");
-      console.log('Cita agendada:', formData);
       window.location.hash = '/dashboard';
-      setFormData({ nombre: '', servicio: 'Fisioterapia', fecha: '', hora: '', modalidad: '' });
     }
     setLoading(false);
   };
@@ -44,63 +70,68 @@ function Agendar() {
       <div className="form-card">
         <h2 className="form-title">Agendar Cita</h2>
         <form onSubmit={handleSubmit}>
+          
           <div className="input-group">
             <label>Nombre del Paciente</label>
             <input 
-              type="text" 
-              required 
+              type="text"
+              id="nombre" 
+              readOnly
               value={formData.nombre}
-              onChange={(e) => setFormData({...formData, nombre: e.target.value})}
-              placeholder="Ej. Juan Pérez"
+              className="input-readonly"
             />
           </div>
 
           <div className="input-group">
-            <label>Servicio</label>
-            <select disabled
+            <label>Servicio Asignado</label>
+            <input 
+              type="text"
+              id="servicio" 
+              readOnly 
               value={formData.servicio}
-              onChange={(e) => setFormData({...formData, servicio: e.target.value})}
-            >
-              <option value="Fisioterapia">Fisioterapia</option>
-              <option value="Rehabilitación">Rehabilitación</option>
-              <option value="Masaje Terapéutico">Masaje Terapéutico</option>
-            </select>
+              className="input-readonly"
+            />
           </div>
 
           <div className="row">
             <div className="input-group">
               <label>Fecha</label>
               <input 
-                type="date" 
+                type="date"
+                id="fecha"
                 required 
                 value={formData.fecha}
                 onChange={(e) => setFormData({...formData, fecha: e.target.value})}
+                min={fechaMin}
+                max={fechaMaxStr}
               />
             </div>
             <div className="input-group">
               <label>Hora</label>
               <input 
                 type="time"
+                id="hora"
                 required 
                 value={formData.hora}
                 onChange={(e) => setFormData({...formData, hora: e.target.value})}
+                min="08:00"
+                max="17:00"
               />
             </div>
           </div>
 
           <div className="input-group">
-            <label>Modalidad</label>
-            <select
+            <label>Modalidad de Sesión</label>
+            <input
               value={formData.modalidad}
-              onChange={(e) => setFormData({...formData, modalidad: e.target.value})}
+              id="modalidad"
+              readOnly
+              className="input-readonly"
             >
-              <option value="seleccionar">Seleccionar modalidad</option>
-              <option value="30-minutos">30 minutos</option>
-              <option value="50-minutos">50 minutos</option>
-            </select>
+            </input>
           </div>
 
-          <button type="submit" className="btn-agendar" disabled={loading} >
+          <button type="submit" className="btn-agendar" id="confirmar-cita" disabled={loading} >
             {loading ? 'Procesando...' : 'Confirmar Cita'}
           </button>
         </form>

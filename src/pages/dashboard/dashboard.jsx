@@ -1,22 +1,19 @@
 import { supabase } from "../../lib/supabase";
 import { useState, useEffect } from "react";
 import './dashboard.css';
+import { Link } from "react-router-dom";
 
 function Dashboard() {
     const [citas, setCitas] = useState([]);
     const [loading, setLoading] = useState(true);
-    // 1. Creamos un estado para el perfil del usuario
     const [userProfile, setUserProfile] = useState({
         nombre: "Paciente",
         servicioInteres: "nuestros servicios",
         numeroidentificacion: ""
     });
 
-    // 2. Función para obtener datos (mejorada)
     async function fetchAllData() {
         setLoading(true);
-        
-        // Obtenemos el usuario de la sesión
         const { data: { user }, error: userError } = await supabase.auth.getUser();
 
         if (user) {
@@ -24,19 +21,17 @@ function Dashboard() {
             const servicio = user.user_metadata?.servicio_interes || "nuestros servicios";
             const id = user.user_metadata?.numero_identificacion || "";
 
-            // Guardamos el perfil en el estado
             setUserProfile({ nombre, servicioInteres: servicio, numeroidentificacion: id });
 
-            // Ahora cargamos las citas usando ese ID
             const { data, error: citasError } = await supabase
                 .from('citas')
                 .select('*')
                 .eq('identificacion', id)
-                .order('fecha', { ascending: true });
+                .order('fecha', { ascending: true })
+                .order('hora', { ascending: true });
 
             if (!citasError) setCitas(data);
         }
-        
         setLoading(false);
     }
 
@@ -46,36 +41,73 @@ function Dashboard() {
 
     return (
         <div className="dashboard-container">
-            <div className="dashboard-header">
-                {/* 3. Usamos los datos del estado userProfile */}
-                <h1>Bienvenido, {userProfile.nombre}</h1>
-                <p>Gestiona tus servicios de {userProfile.servicioInteres} y consulta tus horarios.</p>
-            </div>
             
-            <div className="citas-section">
-                <h2>Próximas Citas</h2>
-                {loading ? (
-                    <p>Cargando datos...</p>
-                ) : citas.length > 0 ? (
-                    <div className="citas-grid">
-                        {citas.map((cita) => (
-                            <div key={cita.id} className="cita-card">
-                                <div className="cita-info">
-                                    <h3>{cita.servicio}</h3>
-                                    <p><strong>Paciente:</strong> {cita.nombre_paciente}</p>
-                                    <div className="cita-date">
-                                        <span>📅 {cita.fecha}</span>
-                                        <span>⏰ {cita.hora}</span>
+            <header className="top-nav">
+                <div className="profile-badge">
+                    <img 
+                        src={`https://ui-avatars.com/api/?name=${userProfile.nombre}&background=random`} 
+                        alt="avatar" 
+                        className="avatar-img"
+                    />
+                    <span className="user-name-text">{userProfile.nombre.split(' ')[0]}</span>
+                    <button className="settings-icon">⚙️</button>
+                </div>
+            </header>
+
+            <main className="dashboard-content">
+                <div className="welcome-section">
+                    <h1 className="welcome-title">¡BIENVENIDO!</h1>
+                    <h2 className="user-name">{userProfile.nombre.toUpperCase()}</h2>
+                    
+
+                    <div className="action-buttons">
+                        <button className="btn-primary">
+                            <Link to="/agendar" className="link-button">
+                                <span className="icon">📅</span> AGENDAR CITA
+                            </Link>
+                        </button>
+                        <button className="btn-secondary">
+                            <span className="icon">📋</span> HISTORIA CLÍNICA
+                        </button>
+                    </div>
+                </div>
+
+                <div className="citas-section">
+                    <h3 className="section-title">PRÓXIMA CITA</h3>
+                    
+                    {loading ? (
+                        <div className="loader">Cargando datos...</div>
+                    ) : citas.length > 0 ? (
+                        <div className="citas-grid">
+                            
+                            {citas.slice(0, 1).map((cita) => (
+                                <div key={cita.id} className="cita-card">
+                                    <div className="card-header">
+                                        <p><strong>PACIENTE:</strong> {cita.nombre_paciente.toUpperCase()}</p>
+                                        <span className="status-pill">{cita.estado || 'PENDIENTE'}</span>
+                                    </div>
+                                    <div className="card-body">
+                                        <div className="detail-item">
+                                            <span>📅 FECHA: {cita.fecha}</span>
+                                        </div>
+                                        <div className="detail-item">
+                                            <span>⏰ HORA: {cita.hora}</span>
+                                        </div>
+                                        <div className="detail-item">
+                                            <span>⚕️ SERVICIO: {cita.servicio}</span>
+                                        </div>
+                                        <div className="detail-item">
+                                            <span>👨‍⚕️ PROFESIONAL: {cita.profesional || 'Por asignar'}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <span className="status-badge">{cita.estado || 'Pendiente'}</span>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <p className="no-citas">No tienes citas agendadas actualmente.</p>
-                )}
-            </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="no-citas">No tienes citas agendadas actualmente.</p>
+                    )}
+                </div>
+            </main>
         </div>
     );
 }
