@@ -4,7 +4,7 @@ import './agendar.css';
 
 function Agendar() {
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const [userData, setUserData] = useState({
     nombre: '',
     servicio: '',
     identificacion: '',
@@ -24,7 +24,7 @@ function Agendar() {
     async function getProfile() {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
-        setFormData(prev => ({
+        setUserData(prev => ({
           ...prev,
           nombre: user.user_metadata?.nombre_completo || '',
           servicio: user.user_metadata?.servicio || '',
@@ -38,7 +38,7 @@ function Agendar() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.modalidad === 'seleccionar') return alert("Selecciona una modalidad");
+    if (userData.modalidad === 'seleccionar') return alert("Selecciona una modalidad");
 
     setLoading(true);
 
@@ -46,12 +46,12 @@ function Agendar() {
       .from('citas')
       .insert([
         { 
-          nombre_paciente: formData.nombre, 
-          servicio: formData.servicio, 
-          identificacion: formData.identificacion,
-          fecha: formData.fecha, 
-          hora: formData.hora,
-          modalidad: formData.modalidad,
+          nombre_paciente: userData.nombre, 
+          servicio: userData.servicio, 
+          identificacion: userData.identificacion,
+          fecha: userData.fecha, 
+          hora: userData.hora,
+          modalidad: userData.modalidad,
           estado: 'pendiente'
         }
       ]);
@@ -77,7 +77,7 @@ function Agendar() {
               type="text"
               id="nombre" 
               readOnly
-              value={formData.nombre}
+              value={userData.nombre}
               className="input-readonly"
             />
           </div>
@@ -88,7 +88,7 @@ function Agendar() {
               type="text"
               id="servicio" 
               readOnly 
-              value={formData.servicio}
+              value={userData.servicio}
               className="input-readonly"
             />
           </div>
@@ -100,8 +100,8 @@ function Agendar() {
                 type="date"
                 id="fecha"
                 required 
-                value={formData.fecha}
-                onChange={(e) => setFormData({...formData, fecha: e.target.value})}
+                value={userData.fecha}
+                onChange={(e) => setUserData({...userData, fecha: e.target.value})}
                 min={fechaMin}
                 max={fechaMaxStr}
               />
@@ -112,8 +112,8 @@ function Agendar() {
                 type="time"
                 id="hora"
                 required 
-                value={formData.hora}
-                onChange={(e) => setFormData({...formData, hora: e.target.value})}
+                value={userData.hora}
+                onChange={(e) => setUserData({...userData, hora: e.target.value})}
                 min="08:00"
                 max="17:00"
               />
@@ -123,7 +123,7 @@ function Agendar() {
           <div className="input-group">
             <label>Modalidad de Sesión</label>
             <input
-              value={formData.modalidad}
+              value={userData.modalidad}
               id="modalidad"
               readOnly
               className="input-readonly"
