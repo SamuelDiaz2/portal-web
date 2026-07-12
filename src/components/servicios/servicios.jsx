@@ -8,37 +8,36 @@ function Servicios() {
     // Filtramos los datos basados en la categoría seleccionada
     const serviciosFiltrados = serviciosData.filter(
         item => item.categoria === categoriaActual
-    );  
+    );
 
     return (
         <section className="servicios-section">
             <div className="servicios-container">
                 <h2>Nuestros Servicios</h2>
-                
+
                 {/* --- NUEVO SELECTOR SEGMENTADO --- */}
                 <div className='eleccion-servicios'>
                     <div className="segmented-control">
-                        
-                        <div className={`indicator ${
-                            categoriaActual === "Psicología" ? "move-center" :
-                            categoriaActual === "Respiratoria" ? "move-right" : ""
-                        }`}></div>
-                        
+
+                        <div className={`indicator ${categoriaActual === "Psicología" ? "move-center" :
+                                categoriaActual === "Respiratoria" ? "move-right" : ""
+                            }`}></div>
+
                         <button
                             className={`btn-tab ${categoriaActual === "Física" ? "active" : ""}`}
                             onClick={() => setCategoriaActual("Física")}
                         >
                             Física
                         </button>
-                        
-                        <button 
+
+                        <button
                             className={`btn-tab ${categoriaActual === "Psicología" ? "active" : ""}`}
                             onClick={() => setCategoriaActual("Psicología")}
                         >
                             Psicología
                         </button>
-                        
-                        <button 
+
+                        <button
                             className={`btn-tab ${categoriaActual === "Respiratoria" ? "active" : ""}`}
                             onClick={() => setCategoriaActual("Respiratoria")}
                         >

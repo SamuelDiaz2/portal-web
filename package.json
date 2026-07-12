@@ -1,6 +1,5 @@
 {
   "name": "portal-pacientes",
-  "homepage": "https://samueldiaz2.github.io/portal-web/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,9 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.97.0",
@@ -22,7 +19,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
+    "@types/react-dom": "^19.2.5",
     "@vitejs/plugin-react": "^5.1.4",
     "eslint": "^10.0.1",
     "eslint-plugin-react-hooks": "^7.0.1",
