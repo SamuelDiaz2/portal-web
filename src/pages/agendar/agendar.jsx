@@ -1,143 +1,41 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../../lib/supabase';
-import './agendar.css';
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-function Agendar() {
-  const [loading, setLoading] = useState(false);
-  const [userData, setUserData] = useState({
-    nombre: '',
-    servicio: '',
-    identificacion: '',
-    modalidad: '',
-    fecha: '',
-    hora: '09:00'
-  });
-  
+  // 1. Obtener la sesión activa del usuario actual
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-  // variables para limitar la selección de fecha a los próximos 30 días
-  const fechaMin = new Date().toISOString().split('T')[0];
-  const fechaMax = new Date();
-  fechaMax.setDate(fechaMax.getDate() + 30);
-  const fechaMaxStr = fechaMax.toISOString().split('T')[0];
-
-  useEffect(() => {
-    async function getProfile() {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUserData(prev => ({
-          ...prev,
-          nombre: user.user_metadata?.nombre_completo || '',
-          servicio: user.user_metadata?.servicio || '',
-          identificacion: user.user_metadata?.numero_identificacion || '',
-          modalidad: user.user_metadata?.modalidad || ''
-        }));
-      }
-    }
-    getProfile();
-  }, []);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (userData.modalidad === 'seleccionar') return alert("Selecciona una modalidad");
-
-    setLoading(true);
-
-    const { error } = await supabase
-      .from('citas')
-      .insert([
-        { 
-          nombre_paciente: userData.nombre, 
-          servicio: userData.servicio, 
-          identificacion: userData.identificacion,
-          fecha: userData.fecha, 
-          hora: userData.hora,
-          modalidad: userData.modalidad,
-          estado: 'pendiente'
-        }
-      ]);
-
-    if (error) {
-      alert("Error al agendar: " + error.message);
-    } else {
-      alert("¡Cita agendada con éxito!");
-      window.location.hash = '/dashboard';
-    }
+  if (userError || !user) {
+    alert("Debes iniciar sesión para agendar una cita.");
     setLoading(false);
-  };
+    return;
+  }
 
-  return (
-    <div className="agendar-container">
-      <div className="form-card">
-        <h2 className="form-title">Agendar Cita</h2>
-        <form onSubmit={handleSubmit}>
-          
-          <div className="input-group">
-            <label>Nombre del Paciente</label>
-            <input 
-              type="text"
-              id="nombre" 
-              readOnly
-              value={userData.nombre}
-              className="input-readonly"
-            />
-          </div>
+  // 2. Insertar la cita con referencia al user_id y guardando la ubicación
+  const { error } = await supabase
+    .from('citas')
+    .insert([
+      {
+        user_id: user.id,
+        nombre_paciente: user.user_metadata?.nombre_completo || userData.nombre,
+        identificacion: user.user_metadata?.numero_identificacion,
+        telefono_contacto: user.user_metadata?.telefono,
+        direccion_atencion: user.user_metadata?.direccion,
+        barrio_localidad: user.user_metadata?.barrio_localidad,
+        municipio_ciudad: user.user_metadata?.municipio_ciudad,
+        servicio: userData.servicio, 
+        fecha: userData.fecha, 
+        hora: userData.hora,
+        modalidad: userData.modalidad,
+        estado: 'pendiente'
+      }
+    ]);
 
-          <div className="input-group">
-            <label>Servicio Asignado</label>
-            <input 
-              type="text"
-              id="servicio" 
-              readOnly 
-              value={userData.servicio}
-              className="input-readonly"
-            />
-          </div>
-
-          <div className="row">
-            <div className="input-group">
-              <label>Fecha</label>
-              <input 
-                type="date"
-                id="fecha"
-                required 
-                value={userData.fecha}
-                onChange={(e) => setUserData({...userData, fecha: e.target.value})}
-                min={fechaMin}
-                max={fechaMaxStr}
-              />
-            </div>
-            <div className="input-group">
-              <label>Hora</label>
-              <input 
-                type="time"
-                id="hora"
-                required 
-                value={userData.hora}
-                onChange={(e) => setUserData({...userData, hora: e.target.value})}
-                min="08:00"
-                max="17:00"
-              />
-            </div>
-          </div>
-
-          <div className="input-group">
-            <label>Modalidad de Sesión</label>
-            <input
-              value={userData.modalidad}
-              id="modalidad"
-              readOnly
-              className="input-readonly"
-            >
-            </input>
-          </div>
-
-          <button type="submit" className="btn-agendar" id="confirmar-cita" disabled={loading} >
-            {loading ? 'Procesando...' : 'Confirmar Cita'}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-export default Agendar;
+  if (error) {
+    alert("Error al agendar: " + error.message);
+  } else {
+    alert("¡Cita agendada con éxito!");
+    window.location.hash = '/dashboard';
+  }
+  setLoading(false);
+};
