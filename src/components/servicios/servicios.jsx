@@ -5,7 +5,6 @@ import { useState } from 'react';
 function Servicios() {
     const [categoriaActual, setCategoriaActual] = useState("Física");
 
-    // Filtramos los datos basados en la categoría seleccionada
     const serviciosFiltrados = serviciosData.filter(
         item => item.categoria === categoriaActual
     );
@@ -15,7 +14,6 @@ function Servicios() {
             <div className="servicios-container">
                 <h2>Nuestros Servicios</h2>
 
-                {/* --- NUEVO SELECTOR SEGMENTADO --- */}
                 <div className='eleccion-servicios'>
                     <div className="segmented-control">
 
