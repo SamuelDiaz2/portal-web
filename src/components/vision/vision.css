@@ -22,27 +22,26 @@
     width: 90%;
     max-width: 900px;
     background: #fdfdfd;
-    border-radius: 30px; /* Bordes muy redondeados */
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     align-items: stretch;
-    margin: 0 auto; /* Centra el contenedor */
+    margin: 0 auto;
 }
 
-/* --- TEXTO A LA IZQUIERDA --- */
 .vision-text-container {
     flex: 1;
     padding: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrado vertical para evitar que el texto suba */
-    align-items: flex-end; /* Alineamos el texto a la derecha para que "mire" a la imagen */
-    text-align: right; /* Texto justificado a la derecha */
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
     gap: 15px;
 }
     
 .vision-subtitle {
-    color: #2ecc71; /* Verde éxito para diferenciar de Misión */
+    color: #2ecc71;
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 2px;
@@ -54,7 +53,7 @@
     color: #2c3e50;
     font-size: 2.5rem;
     font-weight: 900;
-    font-style: italic; /* Siguiendo el logo de REHABILITAR */
+    font-style: italic;
     text-align: center;
 }
 
@@ -70,7 +69,6 @@
     color: white;
 }
 
-/* --- IMAGEN A LA DERECHA CON CORTE --- */
 .vision-image-container {
     flex: 1;
     position: relative;
@@ -80,20 +78,18 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* CORTE DIAGONAL INVERSO: El corte empieza desde la izquierda */
     clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
     filter: saturate(1.2);
 }
 
-/* --- RESPONSIVO PARA CELULAR --- */
 @media (max-width: 768px) {
     .vision-container {
-        flex-direction: column-reverse; /* Imagen arriba, texto abajo en móvil */
+        flex-direction: column-reverse;
     }
 
     .vision-image {
         height: 250px;
-        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); /* Corte horizontal inverso */
+        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
     }
 
     .vision-text-container {

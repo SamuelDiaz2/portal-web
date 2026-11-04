@@ -9,7 +9,7 @@
 .form-card {
     background: white;
     padding: 40px;
-    border-radius: 30px; /* Estilo pastilla */
+    border-radius: 30px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 500px;
@@ -20,7 +20,7 @@
     text-align: center;
     margin-bottom: 30px;
     font-weight: 800;
-    font-style: italic; /* Siguiendo el logo */
+    font-style: italic;
 }
 
 .input-group {
@@ -39,13 +39,13 @@ input, select {
 }
 
 input:focus {
-    border-color: #74b9ff; /* Azul de REHABILITAR */
+    border-color: #74b9ff;
 }
 
 .btn-agendar {
     width: 100%;
     padding: 15px;
-    background-color: #0a0a0a; /* Negro como el Navbar */
+    background-color: #0a0a0a;
     color: white;
     border: none;
     border-radius: 25px;
@@ -55,7 +55,7 @@ input:focus {
 }
 
 .btn-agendar:hover {
-    background-color: #2ecc71; /* Verde éxito al pasar el mouse */
+    background-color: #2ecc71;
     transform: translateY(-2px);
 }
 

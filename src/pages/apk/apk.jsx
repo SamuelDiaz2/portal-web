@@ -14,7 +14,6 @@ function Apk() {
 
             <h2>Versión: {version}</h2>
 
-            {/* Opción 1: Enlace directo con atributo download */}
             <a href="descargas/app-debug.apk" download={`PortalProfesionales${version}.apk`}>
                 <button className="download-button">
                     Descargar APK

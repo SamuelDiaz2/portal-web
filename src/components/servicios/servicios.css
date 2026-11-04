@@ -14,7 +14,6 @@
     position: relative;
 }
 
-/* Línea decorativa debajo del título */
 .servicios-container h2::after {
     content: '';
     display: block;
@@ -24,8 +23,6 @@
     margin: 10px auto;
     border-radius: 2px;
 }
-
-
 
 .servicios-list {
     display: flex;
@@ -43,44 +40,36 @@
     margin-bottom: 40px;
 }
 
-/* El contenedor ovalado gris */
 .segmented-control {
     position: relative;
     display: flex;
     background-color: #f0f0f0;
-    /* Color gris de fondo */
     height: 50px;
     border-radius: 25px;
-    /* Forma de pastilla */
     padding: 5px;
     border: 1px solid #ddd;
     width: 100%;
     max-width: 400px;
 }
 
-/* La pastilla negra que se desliza */
 .indicator {
     position: absolute;
     width: calc(33.33% - 7px);
     height: calc(100% - 10px);
     background-color: #a031c5;
-    /* Negro sólido */
     border-radius: 20px;
     transition: transform 0.3s ease;
     z-index: 1;
 }
 
-/* Posición para Psicología (Centro) */
 .move-center {
     transform: translateX(100%);
 }
 
-/* Posición para Respiratoria (Derecha) */
 .move-right {
     transform: translateX(210%);
 }
 
-/* Los botones transparentes encima del indicador */
 .btn-tab {
     flex: 1 1 0;
     border: none;
@@ -91,14 +80,10 @@
     font-size: 14px;
     color: #888;
     transition: color 0.3s;
-
-    /* AJUSTES DE TEXTO CRÍTICOS */
     font-size: clamp(10px, 3vw, 14px);
-    /* El texto se encoge solo según el ancho de pantalla */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* Si de plano no cabe, pone "Respira..." en vez de romperse */
     padding: 0 2px;
 }
 
@@ -118,13 +103,10 @@
     color: #555;
 }
 
-/* Tarjeta de servicio individual */
 .servicio-item {
     flex: 0 0 300px;
-    /* No se encogen, ancho fijo de 300px */
     background-color: #ffffff;
     border-radius: 30px;
-    /* Estilo pastilla */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
@@ -136,28 +118,23 @@
     transform: translateY(-12px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     border-color: #74b9ff;
-    /* Resalte azul al pasar el mouse */
 }
 
-/* Imagen con bordes internos redondeados */
 .servicio-item img {
     width: 100%;
     height: 220px;
     object-fit: cover;
     border-radius: 20px;
-    /* Redondeado interno */
     margin-bottom: 1.5rem;
     object-position: top;
 }
 
 .servicio-item h3 {
     color: #0a0a0a;
-    /* Negro sólido como el Navbar */
     margin-bottom: 0.8rem;
     font-size: 1.4rem;
     font-weight: 800;
     font-style: italic;
-    /* Siguiendo la línea del logo */
     padding: 0 10px;
 }
 
@@ -168,42 +145,7 @@
     padding: 0 10px 1rem 10px;
 }
 
-/* BOTÓN DE WHATSAPP INTEGRADO EN EL PORTAL */
-.btn-whatsapp-portal {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #25d366;
-    /* Verde oficial de WhatsApp */
-    color: #ffffff !important;
-    text-decoration: none !important;
-    /* Quita la línea de link */
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.2);
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
 
-/* Efecto al pasar el cursor (PC) */
-.btn-whatsapp-portal:hover {
-    background-color: #20ba5a;
-}
-
-/* Efecto al presionarlo (Celular/PC) */
-.btn-whatsapp-portal:active {
-    transform: scale(0.97);
-}
-
-.wa-icon-span {
-    font-size: 16px;
-}
-
-/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
     .servicios-container {
         padding: 2rem 1rem;
@@ -215,6 +157,5 @@
 
     .servicio-item {
         scroll-snap-align: center;
-        /* Se detienen en el centro al deslizar */
     }
 }

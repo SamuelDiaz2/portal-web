@@ -6,11 +6,11 @@
 }
 
 .apk a {
-    text-decoration: none; /* Quita la línea azul del enlace */
+    text-decoration: none;
 }
 
 .download-button {
-    background-color: #27ae60; /* Verde éxito */
+    background-color: #27ae60;
     color: white;
     padding: 15px 30px;
     border: none;

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'PT Sans Caption', sans-serif;
-    background-color: #f0f0f0; /* Un fondo claro para resaltar los botones */
+    background-color: #f0f0f0;
 }
 
 .ingresar-container {
@@ -10,24 +10,24 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    gap: 50px; /* Espacio entre los botones */
+    height: 100vh;
+    gap: 50px;
 }
 
 .Profesional button {
     background-color: purple;
 
 }
-/* Estilo para el botón para que se vea limpio */
+
 .Paciente button {
-    background-color: green; /* El color que tienes en la imagen */
+    background-color: green; 
     color: white;
 }
 
 .ingresar-container img {
-    width: 100px; /* Ajusta el tamaño de las imágenes */
+    width: 100px; 
     height: 100px;
-    object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+    object-fit: cover; 
 }
 
 button {
@@ -50,7 +50,7 @@ button {
 
 @media screen and (max-width: 768px) {
     .ingresar-container {
-        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-        gap: 20px; /* Reduce el espacio entre los botones */
+        flex-direction: column; 
+        gap: 20px; 
     }
 }

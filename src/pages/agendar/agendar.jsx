@@ -29,7 +29,10 @@ function Agendar() {
           nombre: user.user_metadata?.nombre_completo || '',
           servicio: user.user_metadata?.servicio || '',
           identificacion: user.user_metadata?.numero_identificacion || '',
-          modalidad: user.user_metadata?.modalidad || ''
+          modalidad: user.user_metadata?.modalidad || '',
+          telefono: user.user_metadata?.telefono || '',
+          direccion: user.user_metadata?.direccion || '',
+          municipio: user.user_metadata?.municipio_ciudad || '',
         }));
       }
     }
@@ -52,6 +55,9 @@ function Agendar() {
           fecha: userData.fecha, 
           hora: userData.hora,
           modalidad: userData.modalidad,
+          telefono_contacto: userData.telefono,
+          direccion_atencion: userData.direccion,
+          municipio_ciudad: userData.municipio,
           estado: 'pendiente'
         }
       ]);

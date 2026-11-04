@@ -52,11 +52,6 @@ function Login() {
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? 'Cargando...' : 'Iniciar Sesión'}
         </button>
-
-        <div className="login-footer">
-          <span>¿No tienes cuenta? </span>
-          <Link to="/registro" className="register-link">Registrarse</Link>
-        </div>
       </form>
     </div>
   );

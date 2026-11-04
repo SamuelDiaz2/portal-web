@@ -12,7 +12,6 @@
     padding: 20px;
 }
 
-/* Navegación Superior / Perfil */
 .top-nav {
     display: flex;
     justify-content: flex-end;
@@ -55,7 +54,6 @@
     cursor: pointer;
 }
 
-/* Sección de Bienvenida */
 .welcome-section {
     text-align: center;
     margin-top: 40px;
@@ -76,7 +74,6 @@
     font-weight: 400;
 }
 
-/* Botones Principales */
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -121,7 +118,6 @@
     transform: scale(1.05);
 }
 
-/* Sección Próxima Cita */
 .citas-section {
     max-width: 600px;
     margin: 0 auto;
@@ -166,15 +162,13 @@
     letter-spacing: 0.5px;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
     .welcome-title { font-size: 2rem; }
     .action-buttons { flex-direction: column; align-items: center; }
     .profile-badge {
-        /* Reducimos el padding para que quede circular o casi circular */
         padding: 5px; 
         gap: 0;
-        background: transparent; /* Opcional: quitar el fondo blanco en móvil */
+        background: transparent;
         box-shadow: none;
     }
     .user-name-text, 
