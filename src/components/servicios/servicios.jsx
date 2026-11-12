@@ -2,6 +2,16 @@ import { useState, useRef } from 'react';
 import serviciosData from './servicios.json';
 import './servicios.css';
 
+// Permite a Vite detectar y empaquetar todas las imágenes en producción (npm run build / preview)
+const imagenesGlob = import.meta.glob('../../assets/img/*', { eager: true, import: 'default' });
+
+const getImageUrl = (rawPath) => {
+  if (!rawPath) return '';
+  const fileName = rawPath.split('/').pop();
+  const matchedKey = Object.keys(imagenesGlob).find((key) => key.endsWith(`/${fileName}`));
+  return matchedKey ? imagenesGlob[matchedKey] : rawPath;
+};
+
 function Servicios() {
   const [categoriaActual, setCategoriaActual] = useState("Física");
   const carouselRef = useRef(null);
@@ -93,7 +103,7 @@ function Servicios() {
           {serviciosFiltrados.map((item, index) => (
             <div key={index} className="servicio-card-horizontal">
               <div className="card-image-wrap">
-                <img src={item.img} alt={item.title} loading="lazy" />
+                <img src={getImageUrl(item.img)} alt={item.title} loading="lazy" />
                 <span className="card-category-badge">
                   {categoriaActual === "Física" ? "Física" : categoriaActual === "Psicología" ? "Psicología" : "Respiratoria"}
                 </span>

@@ -1,4 +1,5 @@
 import './vision.css';
+import imgVision from '../../assets/img/fisioterapeuta-balon.avif';
 
 function Vision() {
   return (
@@ -39,7 +40,7 @@ function Vision() {
           {/* LADO DE LA IMAGEN (DERECHA) */}
           <div className="vision-image-container">
             <img
-              src="../../src/assets/img/fisioterapeuta-balon.avif"
+              src={imgVision}
               alt="Especialista en rehabilitación con paciente"
               className="vision-image"
             />

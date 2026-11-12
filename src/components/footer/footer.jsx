@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './footer.css';
+import Logo from '../../assets/img/logo.svg';
 
 function Footer() {
   const scrollToTop = (e) => {
@@ -16,7 +17,7 @@ function Footer() {
         <div className="footer-col brand-col">
           <div className="footer-logo">
             <div className="footer-logo-icon">
-              <img src='../../src/assets/img/logo.svg' alt="Logo" />
+              <img src={Logo} alt="Logo" />
             </div>
             <span className="footer-logo-text">REHABILITAR-C</span>
           </div>

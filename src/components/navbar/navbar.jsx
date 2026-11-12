@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../../assets/img/logo.svg';
 import './navbar.css';
 
 export default function Navbar() {
@@ -29,7 +30,7 @@ export default function Navbar() {
         {/* LOGO IZQUIERDA */}
         <NavLink to="/inicio" className="reh-logo" onClick={() => setMenuAbierto(false)}>
           <div className="reh-logo-icon">
-            <img src='../../src/assets/img/logo.svg' alt="Logo" />
+            <img src={Logo} alt="Logo" />
           </div>
           <span className="reh-logo-text">REHABILITAR-C</span>
         </NavLink>

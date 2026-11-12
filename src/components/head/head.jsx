@@ -2,22 +2,26 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './head.css';
 
+import imgSlide1 from '../../assets/img/doctor-ayudando-al-paciente-rehabilitacion.avif';
+import imgSlide2 from '../../assets/img/doctor-ayudando.avif';
+import imgSlide3 from '../../assets/img/fisioterapeuta-banda.avif';
+
 function Head() {
   const imagenes = [
     {
       title: 'Terapia Física y Fisioterapia Especializada',
       badge: 'Terapia Física Personalizada',
-      img: 'https://img.freepik.com/foto-gratis/doctor-ayudando-al-paciente-rehabilitacion_23-2150321582.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80',
+      img: imgSlide1,
     },
     {
       title: 'Acompañamiento y Cuidado Profesional',
       badge: 'Atención Humana y Profesional',
-      img: 'https://img.freepik.com/foto-gratis/doctor-ayudando-al-paciente-rehabilitacion_23-2150321621.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80',
+      img: imgSlide2,
     },
     {
       title: 'Ejercicios de Recuperación y Movilidad',
       badge: 'Recuperación Progresiva',
-      img: 'https://img.freepik.com/fotos-premium/fisioterapeuta-banda-resistencia-mujer-consulta-recuperacion-experto-lesiones-o-paciente-ayuda-fisioterapia-al-cliente-ejercicios-rehabilitacion-o-estiramiento-piernas-fuerza-muscular_590464-411961.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80',
+      img: imgSlide3,
     },
   ];
 

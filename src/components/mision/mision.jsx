@@ -1,4 +1,5 @@
 import './mision.css';
+import imgMision from '../../assets/img/retrato-fisioterapeuta.avif';
 
 function Mision() {
   return (
@@ -8,7 +9,7 @@ function Mision() {
           {/* LADO DE LA IMAGEN CON MARCO ELEGANTE */}
           <div className="mision-image-container">
             <img
-              src="../../src/assets/img/retrato-fisioterapeuta.avif"
+              src={imgMision}
               alt="Fisioterapeuta profesional atendiendo paciente"
               className="mision-image"
             />
