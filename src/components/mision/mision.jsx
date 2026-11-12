@@ -1,29 +1,57 @@
 import './mision.css';
-// Importa tu imagen. Asegúrate de que esté en src/assets/ o usa una URL
-
 
 function Mision() {
-    return (
-        <section className="mision-section">
-            <h2 className="mision-title">Misión</h2>
-            <div className="mision-container">
-
-                {/* Contenedor de la imagen con el corte diagonal */}
-                <div className="mision-image-container">
-                    <img src="../../src/assets/img/retrato-fisioterapeuta.avif" alt="Equipo de salud trabajando" className="mision-image" />
-                </div>
-                {/* Bloque de texto de la misión */}
-                <div className="mision-text-container">
-                    <span className="mision-subtitle">NUESTRA PASIÓN</span>
-                    <p className="mision-description">
-                        Ofrecer nuestros servicios de salud a las personas de todo Cundinamarca,
-                        de nuestros pacientes y cumplir con las expectativas para tener un
-                        mejoramiento progresivo, utilizando los recursos a nuestra disposición.
-                    </p>
-                </div>
+  return (
+    <section id="mision" className="mision-section">
+      <div className="mision-wrapper">
+        <div className="mision-card">
+          {/* LADO DE LA IMAGEN CON MARCO ELEGANTE */}
+          <div className="mision-image-container">
+            <img
+              src="../../src/assets/img/retrato-fisioterapeuta.avif"
+              alt="Fisioterapeuta profesional atendiendo paciente"
+              className="mision-image"
+            />
+            <div className="mision-badge-floating">
+              <span className="badge-icon">🌿</span>
+              <span>Compromiso con tu Salud</span>
             </div>
-        </section>
-    );
+          </div>
+
+          {/* LADO DEL TEXTO */}
+          <div className="mision-text-container">
+            <div className="mision-pill-tag">
+              <span className="mision-dot"></span>
+              <span>Nuestra Pasión</span>
+            </div>
+            
+            <h2 className="mision-heading">
+              Nuestra <span className="mision-gradient">Misión</span>
+            </h2>
+
+            <p className="mision-description">
+              Ofrecer servicios de salud y rehabilitación con los más altos estándares a las personas y familias de toda Cundinamarca, superando expectativas mediante un mejoramiento progresivo y personalizado que devuelva la independencia y calidad de vida a cada paciente.
+            </p>
+
+            <div className="mision-features-list">
+              <div className="mision-feature-item">
+                <span className="feature-check">✓</span>
+                <span>Atención cálida, humana e individualizada</span>
+              </div>
+              <div className="mision-feature-item">
+                <span className="feature-check">✓</span>
+                <span>Cobertura domiciliaria e institucional en Cundinamarca</span>
+              </div>
+              <div className="mision-feature-item">
+                <span className="feature-check">✓</span>
+                <span>Equipamiento moderno y terapias avanzadas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Mision;

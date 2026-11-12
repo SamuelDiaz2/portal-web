@@ -1,42 +1,141 @@
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './head.css';
 
 function Head() {
+  const imagenes = [
+    {
+      title: 'Terapia Física y Fisioterapia Especializada',
+      badge: 'Terapia Física Personalizada',
+      img: 'https://img.freepik.com/foto-gratis/doctor-ayudando-al-paciente-rehabilitacion_23-2150321582.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80',
+    },
+    {
+      title: 'Acompañamiento y Cuidado Profesional',
+      badge: 'Atención Humana y Profesional',
+      img: 'https://img.freepik.com/foto-gratis/doctor-ayudando-al-paciente-rehabilitacion_23-2150321621.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80',
+    },
+    {
+      title: 'Ejercicios de Recuperación y Movilidad',
+      badge: 'Recuperación Progresiva',
+      img: 'https://img.freepik.com/fotos-premium/fisioterapeuta-banda-resistencia-mujer-consulta-recuperacion-experto-lesiones-o-paciente-ayuda-fisioterapia-al-cliente-ejercicios-rehabilitacion-o-estiramiento-piernas-fuerza-muscular_590464-411961.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80',
+    },
+  ];
 
-    const imagenes = [
-        {
-            tittle: 'imagen 1',
-            img: '../../src/assets/img/doctor-ayudando-al-paciente-rehabilitacion.avif'
-        },
-        {
-            tittle: 'imagen 2',
-            img: '../../src/assets/img/doctor-ayudando.avif'
-        },
-        {
-            tittle: 'imagen 3',
-            img: '../../src/assets/img/fisioterapeuta-banda.avif'
-        },
-    ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-    return (
-        <section className="slider-viewport">
-            <div className="slider-wrapper">
+  // Control 100% sincronizado por React (sin desincronización de CSS)
+  useEffect(() => {
+    if (isPaused) return;
 
-                <div className="slide">
-                    <img src={imagenes[0].img} alt={imagenes[0].tittle} />
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % imagenes.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [isPaused, imagenes.length]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? imagenes.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % imagenes.length);
+  };
+
+  return (
+    <section className="hero-head-container">
+      {/* Luces ambientales difusas */}
+      <div className="ambient-glow glow-purple"></div>
+      <div className="ambient-glow glow-pink"></div>
+      <div className="ambient-glow glow-green"></div>
+
+      {/* ENCABEZADO ELEGANTE DEL HERO */}
+      <div className="hero-text-content">
+        <div className="hero-pill-tag">
+          <span className="hero-pill-dot"></span>
+          <span>Centro de Rehabilitación y Salud Integral</span>
+        </div>
+
+        <h1 className="hero-main-title">
+          Recupera tu bienestar en <br className="hero-br" />
+          <span className="hero-highlight">manos de profesionales</span>
+        </h1>
+
+        <p className="hero-description">
+          Atención personalizada en fisioterapia, fonoaudiología, psicologia y
+          acompañamiento integral para potenciar tu calidad de vida.
+        </p>
+
+        <div className="hero-cta-group">
+          <Link to="/agendar" className="hero-btn-primary">
+            <span>Agendar Cita</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </Link>
+          <a href="#servicios" className="hero-btn-secondary">
+            Ver Servicios
+          </a>
+        </div>
+      </div>
+
+      {/* CONTENEDOR DEL SLIDER CON REACT STATE (SIN DESINCRONIZACIÓN) */}
+      <div
+        className="hero-slider-card"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className="slider-viewport">
+          <div
+            className="slider-wrapper-react"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {imagenes.map((item, index) => (
+              <div key={index} className="slide-item">
+                <img src={item.img} alt={item.title} />
+                <div className="slide-overlay">
+                  <span className="slide-badge">{item.badge}</span>
                 </div>
-                <div className="slide">
-                    <img src={imagenes[1].img} alt={imagenes[1].tittle} />
-                </div>
-                <div className="slide">
-                    <img src={imagenes[2].img} alt={imagenes[2].tittle} />
-                </div>
-                {/* Repetimos la primera imagen al final para un efecto infinito suave */}
-                <div className="slide">
-                    <img src={imagenes[0].img} alt={imagenes[0].tittle} />
-                </div>
-            </div>
-        </section>
-    );
+              </div>
+            ))}
+          </div>
+
+          {/* Flechas de navegación sutiles estilo Glass */}
+          <button
+            type="button"
+            className="slider-arrow arrow-left"
+            onClick={handlePrev}
+            aria-label="Anterior"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            className="slider-arrow arrow-right"
+            onClick={handleNext}
+            aria-label="Siguiente"
+          >
+            ›
+          </button>
+        </div>
+
+        {/* INDICADORES 100% SINCRONIZADOS Y CLICKEABLES */}
+        <div className="slider-indicators">
+          {imagenes.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`indicator-dot ${currentIndex === index ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Ir a diapositiva ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Head;

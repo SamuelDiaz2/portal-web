@@ -1,220 +1,308 @@
-/* servicios.css */
+/* =========================================================
+   SERVICIOS COMPONENT - DESPLAZAMIENTO HORIZONTAL ELEGANTE
+   ========================================================= */
 
-.servicios-container {
-    padding: 4rem 2rem;
-    background-color: #f9f9f9;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.servicios-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px 70px 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.servicios-container h2 {
-    color: #2c3e50;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    position: relative;
+.servicios-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-/* Línea decorativa debajo del título */
-.servicios-container h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #3498db;
-    margin: 10px auto;
-    border-radius: 2px;
+/* 1. ENCABEZADO DE SECCIÓN */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-
-.servicios-list {
-    display: flex;
-    gap: 20px;
-    padding: 0 5%;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    animation: slideInLeft 0.5s ease-out;
-    overflow-x: auto;
+.section-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: #7c3aed;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 16px;
 }
 
-.eleccion-servicios {
-    display: flex;
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2fe03f;
+  box-shadow: 0 0 6px #2fe03f;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 850;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.title-gradient {
+  background: linear-gradient(135deg, #7c3aed 0%, #e02fd1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* 2. BARRA DE CONTROL (PESTAÑAS + FLECHAS DE SCROLL) */
+.servicios-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 25px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.servicios-pill-tabs {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 5px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tab-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.tab-pill-btn:hover {
+  color: #0f172a;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.tab-pill-btn.active {
+  background: linear-gradient(135deg, #7c3aed 0%, #e02fd1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+}
+
+.tab-icon {
+  font-size: 15px;
+}
+
+/* Flechas para deslizar horizontalmente */
+.servicios-scroll-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-arrow-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #1e293b;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.scroll-arrow-btn:hover {
+  background: #7c3aed;
+  color: #ffffff;
+  border-color: #7c3aed;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+
+/* 3. TRACK HORIZONTAL DESPLAZABLE */
+.servicios-horizontal-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 10px 4px 25px 4px;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scrollbar personalizado súper elegante */
+.servicios-horizontal-track::-webkit-scrollbar {
+  height: 7px;
+}
+
+.servicios-horizontal-track::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+}
+
+.servicios-horizontal-track::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.25);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+.servicios-horizontal-track::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 47, 209, 0.5);
+}
+
+/* 4. TARJETAS DE SERVICIO HORIZONTALES */
+.servicio-card-horizontal {
+  flex: 0 0 310px;
+  scroll-snap-align: start;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.servicio-card-horizontal:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px rgba(124, 58, 237, 0.16);
+  border-color: rgba(224, 47, 209, 0.35);
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.servicio-card-horizontal:hover .card-image-wrap img {
+  transform: scale(1.05);
+}
+
+.card-category-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #7c3aed;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.card-desc {
+  color: #64748b;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Indicador de deslizamiento */
+.servicios-scroll-hint {
+  margin-top: 10px;
+  color: #94a3b8;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* 5. RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  .servicios-section {
+    padding: 60px 16px 50px 16px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .servicio-card-horizontal {
+    flex: 0 0 280px;
+  }
+
+  .servicios-nav-container {
     justify-content: center;
-    margin-bottom: 40px;
-}
+  }
 
-/* El contenedor ovalado gris */
-.segmented-control {
-    position: relative;
-    display: flex;
-    background-color: #f0f0f0;
-    /* Color gris de fondo */
-    height: 50px;
-    border-radius: 25px;
-    /* Forma de pastilla */
-    padding: 5px;
-    border: 1px solid #ddd;
-    width: 100%;
-    max-width: 400px;
-}
-
-/* La pastilla negra que se desliza */
-.indicator {
-    position: absolute;
-    width: calc(33.33% - 7px);
-    height: calc(100% - 10px);
-    background-color: #a031c5;
-    /* Negro sólido */
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-    z-index: 1;
-}
-
-/* Posición para Psicología (Centro) */
-.move-center {
-    transform: translateX(100%);
-}
-
-/* Posición para Respiratoria (Derecha) */
-.move-right {
-    transform: translateX(210%);
-}
-
-/* Los botones transparentes encima del indicador */
-.btn-tab {
-    flex: 1 1 0;
-    border: none;
-    background: none;
-    z-index: 2;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 14px;
-    color: #888;
-    transition: color 0.3s;
-
-    /* AJUSTES DE TEXTO CRÍTICOS */
-    font-size: clamp(10px, 3vw, 14px);
-    /* El texto se encoge solo según el ancho de pantalla */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Si de plano no cabe, pone "Respira..." en vez de romperse */
-    padding: 0 2px;
-}
-
-
-.btn-tab.active {
-    color: #ffffff;
-}
-
-
-.btn-servicio:hover {
-    background-color: #74b9ff;
-    color: #0a0a0a;
-}
-
-.categoria-label {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Tarjeta de servicio individual */
-.servicio-item {
-    flex: 0 0 300px;
-    /* No se encogen, ancho fijo de 300px */
-    background-color: #ffffff;
-    border-radius: 30px;
-    /* Estilo pastilla */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid #f0f0f0;
-}
-
-.servicio-item:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: #74b9ff;
-    /* Resalte azul al pasar el mouse */
-}
-
-/* Imagen con bordes internos redondeados */
-.servicio-item img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 20px;
-    /* Redondeado interno */
-    margin-bottom: 1.5rem;
-    object-position: top;
-}
-
-.servicio-item h3 {
-    color: #0a0a0a;
-    /* Negro sólido como el Navbar */
-    margin-bottom: 0.8rem;
-    font-size: 1.4rem;
-    font-weight: 800;
-    font-style: italic;
-    /* Siguiendo la línea del logo */
-    padding: 0 10px;
-}
-
-.servicio-item p {
-    color: #666;
-    line-height: 1.5;
-    font-size: 0.95rem;
-    padding: 0 10px 1rem 10px;
-}
-
-/* BOTÓN DE WHATSAPP INTEGRADO EN EL PORTAL */
-.btn-whatsapp-portal {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #25d366;
-    /* Verde oficial de WhatsApp */
-    color: #ffffff !important;
-    text-decoration: none !important;
-    /* Quita la línea de link */
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.2);
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-/* Efecto al pasar el cursor (PC) */
-.btn-whatsapp-portal:hover {
-    background-color: #20ba5a;
-}
-
-/* Efecto al presionarlo (Celular/PC) */
-.btn-whatsapp-portal:active {
-    transform: scale(0.97);
-}
-
-.wa-icon-span {
-    font-size: 16px;
-}
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 600px) {
-    .servicios-container {
-        padding: 2rem 1rem;
-    }
-
-    .servicios-container h2 {
-        font-size: 2rem;
-    }
-
-    .servicio-item {
-        scroll-snap-align: center;
-        /* Se detienen en el centro al deslizar */
-    }
+  .servicios-scroll-arrows {
+    display: none; /* En móvil se desliza directamente con el dedo */
+  }
 }

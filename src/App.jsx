@@ -2,7 +2,6 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar/navbar'
 import Login from './pages/login/login';
-import Ingresar from './pages/ingresar/ingresar';
 import Inicio from './pages/inicio/inicio';
 import Apk from './pages/apk/apk';
 import Registro from './pages/registro/registro';
@@ -19,7 +18,6 @@ function App() {
           <Route path="/" element={<Navigate to="/inicio" replace />} />
 
           <Route path="/inicio" element={<Inicio />} />
-          <Route path="/ingresar" element={<Ingresar />} />
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/login" element={<Login />} />
