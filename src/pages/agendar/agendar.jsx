@@ -104,6 +104,7 @@ function Agendar() {
 
         setFormData(prev => ({
           ...prev,
+<<<<<<< HEAD
           nombre,
           identificacion,
           telefono,
@@ -112,6 +113,15 @@ function Agendar() {
           modalidad: MODALIDADES_DISPONIBLES.some(m => m.includes(modalidad)) ? modalidad : 'Presencial (30 min)',
           fecha: initialDateStr,
           hora: '08:00'
+=======
+          nombre: user.user_metadata?.nombre_completo || '',
+          servicio: user.user_metadata?.servicio || '',
+          identificacion: user.user_metadata?.numero_identificacion || '',
+          modalidad: user.user_metadata?.modalidad || '',
+          telefono: user.user_metadata?.telefono || '',
+          direccion: user.user_metadata?.direccion || '',
+          municipio: user.user_metadata?.municipio_ciudad || '',
+>>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
         }));
       } catch (err) {
         console.error('Error al cargar datos del usuario:', err);
@@ -176,6 +186,7 @@ function Agendar() {
 
     setLoading(true);
 
+<<<<<<< HEAD
     try {
       const { data, error } = await supabase
         .from('citas')
@@ -195,6 +206,24 @@ function Agendar() {
           }
         ])
         .select();
+=======
+    const { error } = await supabase
+      .from('citas')
+      .insert([
+        { 
+          nombre_paciente: userData.nombre, 
+          servicio: userData.servicio, 
+          identificacion: userData.identificacion,
+          fecha: userData.fecha, 
+          hora: userData.hora,
+          modalidad: userData.modalidad,
+          telefono_contacto: userData.telefono,
+          direccion_atencion: userData.direccion,
+          municipio_ciudad: userData.municipio,
+          estado: 'pendiente'
+        }
+      ]);
+>>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
 
       if (error) {
         console.error('Error al insertar cita:', error);
