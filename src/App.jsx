@@ -6,6 +6,7 @@ import Inicio from './pages/inicio/inicio';
 import Apk from './pages/apk/apk';
 import Agendar from './pages/agendar/agendar';
 import Dashboard from './pages/dashboard/dashboard';
+import Registro from './pages/registro/registro';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
           <Route path="/inicio" element={<Inicio />} />
           <Route path="/dashboard" element={<Dashboard />} />
-
+          <Route path="/registro" element={<Registro />} />
           <Route path="/login" element={<Login />} />
           <Route path="/apk" element={<Apk />} />
           <Route path="/agendar" element={<Agendar />} />
