@@ -11,14 +11,11 @@ function Apk() {
     return (
         <div className="apk">
             <h1 className="apk-title">Descargar Aplicación</h1>
-
             <h2>Versión: {version}</h2>
-
-            {/* Opción 1: Enlace directo con atributo download */}
             <a href="descargas/app-debug.apk" download={`PortalProfesionales${version}.apk`}>
                 <button className="download-button">
                     Descargar APK
-                </button>   
+                </button>
             </a>
         </div>
     );

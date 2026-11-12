@@ -1,4 +1,4 @@
-import { supabase } from '../../lib/supabase';
+import { supabase } from '../../lib/supabase.js';
 import { useState } from 'react';
 import './registro.css'; // Reutilizamos estilos de login
 
@@ -22,7 +22,7 @@ function Registro() {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        
+
         const { data, error } = await supabase.auth.signUp({
             email,
             password,
@@ -58,7 +58,7 @@ function Registro() {
         <div className="register-container"> {/* Contenedor para centrado vertical */}
             <form onSubmit={handleSignUp} className="login-form">
                 <h2 className="form-title">Crear Paciente</h2>
-                
+
                 <input type="text" placeholder="Nombre Completo" required onChange={(e) => setNombre(e.target.value)} />
                 <select onChange={(e) => setIdentificacion(e.target.value)} className="select-pill">
                     <option value="C.C">C.C</option>
@@ -66,7 +66,7 @@ function Registro() {
                     <option value="C.E">C.E</option>
                     <option value="R.C">R.C</option>
                 </select>
-                
+
                 {/* Campos adicionales para información del paciente */}
                 <input type="number" placeholder='Número Identificacion' required onChange={(e) => setNumeroIdentificacion(e.target.value)} />
                 <input type="number" placeholder='Edad' required onChange={(e) => setEdad(e.target.value)} />

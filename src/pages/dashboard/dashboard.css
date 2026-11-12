@@ -20,25 +20,18 @@
 }
 
 .profile-badge {
-    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
     background: white;
-    padding: 5px 15px;
+    padding: 6px 16px;
     border-radius: 50px;
-    transition: all 0.3s ease;
-    z-index: 2;
-}
-
-.profile-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .profile-badge img {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
 }
 
@@ -48,21 +41,14 @@
     text-transform: capitalize;
 }
 
-.settings-icon {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
 /* Sección de Bienvenida */
 .welcome-section {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .welcome-title {
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-weight: 900;
     color: var(--dark-blue);
     letter-spacing: -1px;
@@ -70,23 +56,24 @@
 }
 
 .user-name {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 30px;
-    font-weight: 400;
+    font-size: 1.3rem;
+    color: #64748b;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-weight: 500;
 }
 
 /* Botones Principales */
 .action-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 50px;
+    gap: 15px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 12px 25px;
+.btn-primary {
+    padding: 13px 28px;
     border-radius: 50px;
     border: none;
     font-weight: 700;
@@ -94,53 +81,41 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 0.9rem;
-}
-
-.link-button {
-    color: inherit;
+    transition: all 0.25s ease;
+    font-size: 0.95rem;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-primary {
-    background-color: #4a8db7;
     color: white;
+    background: linear-gradient(135deg, #4a8db7 0%, #306c94 100%);
+    box-shadow: 0 4px 15px rgba(74, 141, 183, 0.35);
 }
 
-.btn-secondary {
-    background-color: #8fb1c5;
-    color: white;
-}
-
-.btn-primary:hover, .btn-secondary:hover {
-    filter: brightness(1.1);
-    transform: scale(1.05);
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 141, 183, 0.45);
 }
 
 /* Sección Próxima Cita */
 .citas-section {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 620px;
+    margin: 0 auto 30px auto;
 }
 
 .section-title {
     text-align: center;
     font-weight: 800;
     color: var(--dark-blue);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    margin-bottom: 18px;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
 }
 
 .cita-card {
     background: var(--dark-blue);
     color: white;
-    padding: 25px;
+    padding: 26px;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(30, 45, 74, 0.15);
+    position: relative;
 }
 
 .card-header {
@@ -148,43 +123,136 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 12px;
 }
 
 .status-pill {
-    background: #4caf50;
-    font-size: 0.7rem;
-    padding: 4px 12px;
+    font-size: 0.72rem;
+    padding: 5px 12px;
     border-radius: 50px;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.status-pendiente {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+.status-confirmada {
+    background: #10b981;
+    color: #ffffff;
+}
+
+.status-cancelada {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+.status-completada {
+    background: #3b82f6;
+    color: #ffffff;
 }
 
 .detail-item {
-    margin: 8px 0;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    color: #e2e8f0;
+}
+
+.card-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-cancelar {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancelar:hover:not(:disabled) {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+.btn-cancelar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.no-citas {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    color: #64748b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.loader {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* Historial de Citas */
+.historial-section {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.historial-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.historial-item {
+    background: white;
+    padding: 16px 20px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid #4a8db7;
+}
+
+.historial-info h4 {
+    margin: 0 0 4px 0;
+    color: var(--dark-blue);
+    font-size: 0.95rem;
+}
+
+.historial-meta {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.85rem;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-    .welcome-title { font-size: 2rem; }
-    .action-buttons { flex-direction: column; align-items: center; }
-    .profile-badge {
-        /* Reducimos el padding para que quede circular o casi circular */
-        padding: 5px; 
-        gap: 0;
-        background: transparent; /* Opcional: quitar el fondo blanco en móvil */
-        box-shadow: none;
-    }
-    .user-name-text, 
-    .settings-icon {
-        display: none;
+    .welcome-title {
+        font-size: 2rem;
     }
 
-    .avatar-img {
-        width: 45px;
-        height: 45px;
-        border: 2px solid var(--primary-blue);
+    .historial-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 }

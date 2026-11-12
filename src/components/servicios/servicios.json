@@ -3,85 +3,84 @@
         "categoria": "Física",
         "title": "Rehabilitación Física",
         "description": "Programa personalizado para cada paciente con el objetivo de   mejorar la movilidad artícular, fuerza, muscular, marcha, estabilidad, equilibrio con el fin de mejorar la independencia funcional; allí se manejan diagnósticos como: fracturas, esguinces, torceduras, pos operatorios de rodilla, cadera, hombro, columna, codo, mano",
-        "img": "https://blog.hospitalangeles.com/wp-content/uploads/2024/12/fractura.jpg"
+        "img": "../../src/assets/img/rehabilitacion-fisica.jpg"
     },
     {
         "categoria": "Física",
         "title": "Rehabilitación Neurológica",
         "description": "Apoyo para pacientes geriátricos o pediátricos con diagnósticos: tales como: ACV, Alzheimer, Parkinson, Demencia, autismo, parálisis cerebral, microcefalia, macrocefalia. Entre otros",
-        "img": "https://fotografias.antena3.com/clipping/cmsimages02/2023/09/22/96FF2274-7286-491A-8030-739C4D4E47E1/nino-paralisis-cerebral-recibiendo-terapia_98.jpg?crop=1254,706,x0,y0&width=1900&height=1069&optimize=low&format=webply"
+        "img": "../../src/assets/img/rehabilitacion-neurologica.webp"
     },
     {
         "categoria": "Respiratoria",
         "title": "Rehabilitación Cardíaca",
         "description": "Programas de ejercicio y educación para pacientes con enfermedades cardíacas.",
-        "img": "https://www.shutterstock.com/image-vector/physiotherapist-guiding-patient-through-muscle-600nw-2701326519.jpg"
+        "img": "../../src/assets/img/rehabilitacion-cardiaca.webp"
     },
     {
         "categoria": "Física",
         "title": "Rehabilitación Deportiva",
         "description": "Nos encargamos de la recuperación muscular, masaje descarga muscular y rehabilitación de lesiones en deportistas",
-        "img": "https://s3.amazonaws.com/actionsportphysio/thumbs/2021011216381848/sports_injuries.jpg"
+        "img": "../../src/assets/img/rehabilitacion-deportiva.jpg"
     },
     {
         "categoria": "Física",
         "title": "Fisioterapia Adulto Mayor",
         "description": "Previene caídas, accidentes domésticos, rigidez articular,  manteniendo la funcionalidad de los adultos mayores",
-        "img": "https://img.freepik.com/fotos-premium/entrenador-que-ayuda-mujer-mayor-levantar-pesas-gimnasia-bola-ejercicio_13339-115476.jpg"
+        "img": "../../src/assets/img/rehabilitacion-adulto-mayor.avif"
     },
     {
         "categoria": "Respiratoria",
         "title": "Oximetría",
         "description": "Es un proceso fundamental para monitorear la función pulmonar y cardíaca en una persona con uso de oxígeno para realizar proceso de destete (retiro) de oxígeno.",
-        "img": "https://vapotherm.com/wp-content/uploads/baby-3-1.jpg"
+        "img": "../../src/assets/img/oximetria.jpg"
     },
     {
         "categoria": "Respiratoria",
         "title": "Terapia Respiratoria",
         "description": "Tratamos y mejoramos la función pulmonar y la capacidad respiratoria del paciente, siendo un proceso vital en el manejo de enfermedades como, gripa, neumonía, bronquitis EPOC, asma o eventos quirúrgicos. Ideal para todo tipo de población",
-        "img": "https://www.shutterstock.com/image-photo/young-girl-doctor-makes-inhalation-600nw-2394627901.jpg"
+        "img": "../../src/assets/img/terapia-respiratoria.webp"
     },
     {
         "categoria": "Psicología",
         "title": "Evaluacion Psicológica",
         "description": "Realizamos procesos de valoración para comprender el estado emocional y orientar adecuadamente la intervención.",
-        "img": "https://img.freepik.com/foto-gratis/mujer-negocios-hablando-su-psicologo_1098-1824.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
+        "img": "../../src/assets/img/evaluacion-psicologica.avif"
     },
     {
         "categoria": "Psicología",
         "title": "Manejo de ansiedad",
         "description": "Te ayudamos a comprender y regular la ansiedad, reducir el estrés y manejar pensamientos que generan preocupación constante.",
-        "img": "https://img.freepik.com/vector-gratis/ilustracion-coaching-vida-dibujado-mano_23-2150257293.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
+        "img": "../../src/assets/img/manejo-ansiedad.avif"
     },
     {
         "categoria": "Psicología",
         "title": "Tratamiento de depresión",
         "description": "Acompañamos procesos de tristeza, falta de motivación, y vació emocional, promoviendo herramientas para recuperar el bienestar.",
-        "img": "https://img.freepik.com/vector-gratis/visita-dibujada-mano-al-concepto-psicologo_52683-69069.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
+        "img": "../../src/assets/img/tratamiento-depresion.avif"
     },
     {
         "categoria": "Psicología",
         "title": "Terapia de pareja",
         "description": "Fortalecemos la comunicación, la confianza y la resolución de conflictos dentro de la relación. ",
-        "img": "https://img.freepik.com/vector-gratis/composicion-plana-divorcio-que-demuestra-que-psicologo-trabaja-pareja-triste-e-infeliz-sentada-sofa-espalda-vuelta-ilustracion-vectorial_1284-69504.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
-    }
-    ,
+        "img": "../../src/assets/img/terapia-pareja.avif"
+    },
     {
         "categoria": "Psicología",
         "title": "Autoestima y crecimiento personal",
         "description": "Trabajamos en el fortalecimiento de la seguridad personal, el autoconocimiento y el desarrollo emocional.",
-        "img": "https://img.freepik.com/vector-gratis/alta-autoestima-mujer-espejo_23-2148731985.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
+        "img": "../../src/assets/img/autoestima.avif"
     },
     {
         "categoria": "Psicología",
         "title": "Informes psicológicos para procesos familiares",
         "description": "Elaboramos informes y valoraciones para entidades como bienestar familiar, procesos legales o situaciones donde se requiera evaluación del entorno familiar, dinámicas parentales y estado emocional.",
-        "img": "https://img.freepik.com/vector-gratis/concepto-comunicacion-empresarial-dibujado-mano_52683-75724.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
+        "img": "../../src/assets/img/informes.avif"
     },
     {
         "categoria": "Psicología",
         "title": "Gestion emocional",
         "description": "Te ayudamos a identificar, entender y regular lo que sientes para responder a las situaciones de la vida cotidiana en una forma equilibrada.",
-        "img": "https://img.freepik.com/vector-gratis/personas-diminutas-curando-corazon-roto-ilustracion-vectorial-plana_778687-3893.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80"
+        "img": "../../src/assets/img/gestion-emocional.avif"
     }
 ]

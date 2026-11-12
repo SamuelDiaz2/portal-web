@@ -2,65 +2,261 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    padding: 20px;
+    min-height: calc(100vh - 80px);
+    padding: 30px 20px;
+    background-color: #f2f5f8;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.agendar-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #1e2d4a;
+    font-weight: 600;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(127, 181, 232, 0.3);
+    border-top: 4px solid #4a8db7;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .form-card {
-    background: white;
-    padding: 40px;
-    border-radius: 30px; /* Estilo pastilla */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(30, 45, 74, 0.08);
     width: 100%;
-    max-width: 500px;
+    max-width: 580px;
+    border: 1px solid rgba(127, 181, 232, 0.2);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.btn-back {
+    display: inline-block;
+    color: #4a8db7;
+    position: absolute;
+    left: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    transition: transform 0.2s, color 0.2s;
+    border: 2px solid #4a8db7;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.btn-back:hover {
+    color: #1e2d4a;
+    background-color: #4a8db7;
+    transform: translateX(-3px);
 }
 
 .form-title {
-    color: #0a0a0a;
-    text-align: center;
-    margin-bottom: 30px;
+    color: #1e2d4a;
+    font-size: 1.8rem;
     font-weight: 800;
-    font-style: italic; /* Siguiendo el logo */
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
 }
 
-.input-group {
-    margin-bottom: 20px;
+.form-subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.agendar-form {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-}
-
-input, select {
-    padding: 12px 20px;
-    border-radius: 15px;
-    border: 1px solid #ddd;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    border-color: #74b9ff; /* Azul de REHABILITAR */
-}
-
-.btn-agendar {
-    width: 100%;
-    padding: 15px;
-    background-color: #0a0a0a; /* Negro como el Navbar */
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn-agendar:hover {
-    background-color: #2ecc71; /* Verde éxito al pasar el mouse */
-    transform: translateY(-2px);
+    gap: 18px;
 }
 
 .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.label-with-helper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1e2d4a;
+}
+
+.helper-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.helper-badge-warning {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.field-hint {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.input-field,
+.select-field,
+.textarea-field,
+.input-readonly {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #dbe3eb;
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    color: #1e2d4a;
+    outline: none;
+    transition: all 0.25s ease;
+    font-family: inherit;
+}
+
+.input-readonly {
+    background-color: #f8fafc;
+    color: #64748b;
+    border-color: #e2e8f0;
+    cursor: default;
+}
+
+.input-field:focus,
+.select-field:focus,
+.textarea-field:focus {
+    border-color: #4a8db7;
+    box-shadow: 0 0 0 3px rgba(74, 141, 183, 0.15);
+}
+
+.textarea-field {
+    resize: vertical;
+    min-height: 75px;
+}
+
+/* Slots de Horarios */
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.slots-grid-saturday {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 260px;
+}
+
+.slot-chip {
+    padding: 9px 4px;
+    background: #f1f5f9;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #334155;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.slot-chip:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.slot-chip.active {
+    background: #4a8db7;
+    color: #ffffff;
+    border-color: #4a8db7;
+    box-shadow: 0 4px 10px rgba(74, 141, 183, 0.3);
+}
+
+/* Botón Agendar */
+.btn-agendar {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #1e2d4a 0%, #2c426b 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(30, 45, 74, 0.2);
+    margin-top: 10px;
+}
+
+.btn-agendar:hover:not(:disabled) {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+}
+
+.btn-agendar:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    .slots-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
 }

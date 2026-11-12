@@ -44,3 +44,10 @@
   text-decoration: none;
   font-weight: bold;
 }
+
+.login-error {
+  color: red;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}

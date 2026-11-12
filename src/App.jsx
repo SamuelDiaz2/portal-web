@@ -11,7 +11,7 @@ import Dashboard from './pages/dashboard/dashboard';
 
 function App() {
   return (
-    
+
     <Router>
       <div className="App">
         <Navbar />
@@ -20,11 +20,12 @@ function App() {
 
           <Route path="/inicio" element={<Inicio />} />
           <Route path="/ingresar" element={<Ingresar />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/apk" element={<Apk />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/agendar" element={<Agendar />} />
-          <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="*" element={<Navigate to="/inicio" replace />} />
         </Routes>

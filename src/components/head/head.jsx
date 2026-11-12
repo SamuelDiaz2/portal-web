@@ -3,19 +3,19 @@ import './head.css';
 function Head() {
 
     const imagenes = [
-    {
-        tittle: 'imagen 1',
-        img: 'https://img.freepik.com/foto-gratis/doctor-ayudando-al-paciente-rehabilitacion_23-2150321582.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80'
-    },
-    {
-        tittle: 'imagen 2',
-        img: 'https://img.freepik.com/foto-gratis/doctor-ayudando-al-paciente-rehabilitacion_23-2150321621.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80'
-    },
-    {
-        tittle: 'imagen 3',
-        img: 'https://img.freepik.com/fotos-premium/fisioterapeuta-banda-resistencia-mujer-consulta-recuperacion-experto-lesiones-o-paciente-ayuda-fisioterapia-al-cliente-ejercicios-rehabilitacion-o-estiramiento-piernas-fuerza-muscular_590464-411961.jpg?ga=GA1.1.988028836.1761012486&semt=ais_hybrid&w=740&q=80'
-    },
-];
+        {
+            tittle: 'imagen 1',
+            img: '../../src/assets/img/doctor-ayudando-al-paciente-rehabilitacion.avif'
+        },
+        {
+            tittle: 'imagen 2',
+            img: '../../src/assets/img/doctor-ayudando.avif'
+        },
+        {
+            tittle: 'imagen 3',
+            img: '../../src/assets/img/fisioterapeuta-banda.avif'
+        },
+    ];
 
     return (
         <section className="slider-viewport">
