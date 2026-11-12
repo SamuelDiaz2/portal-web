@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* =========================================================
    MISIÓN COMPONENT - ESTILO ELEGANTE GLASS
    ========================================================= */
@@ -9,15 +8,6 @@
   background: #f8fafc;
   display: flex;
   justify-content: center;
-=======
-.mision-section {
-    width: 100%;
-    padding: 80px 0;
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
 }
 
 .mision-wrapper {
@@ -25,7 +15,6 @@
   max-width: 1100px;
 }
 
-<<<<<<< HEAD
 .mision-card {
   display: flex;
   align-items: center;
@@ -126,7 +115,9 @@
 .mision-gradient {
   background: linear-gradient(135deg, #7c3aed 0%, #e02fd1 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   display: inline-block;
 }
 
@@ -189,87 +180,3 @@
     font-size: 1.9rem;
   }
 }
-=======
-.mision-container {
-    display: flex;
-    width: 90%;
-    max-width: 900px;
-    background: white;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    align-items: stretch;
-    margin: 0 auto;
-}
-
-.mision-image-container {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-.mision-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-    filter: brightness(0.9);
-}
-
-.mision-text-container {
-    flex: 1;
-    padding: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; 
-    gap: 15px;
-}
-
-.mision-subtitle {
-    color: #74b9ff;
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-
-.mision-title {
-    margin-bottom: 3rem;
-    color: #2c3e50;
-    font-size: 2.5rem;
-    font-weight: 900;
-    font-style: italic;
-    text-align: center;
-}
-
-.mision-description {
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 10px 0;
-}
-
-.mision-btn:hover {
-    background-color: #2ecc71;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-
-    .mision-container {
-        flex-direction: column;
-        width: 95%;
-    }
-
-    .mision-image {
-        height: 250px;
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-    }
-
-    .mision-text-container {
-        padding: 30px;
-        align-items: center;
-        text-align: center;
-    }
-}
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626

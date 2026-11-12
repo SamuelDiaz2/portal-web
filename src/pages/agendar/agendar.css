@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'PT Sans Caption', sans-serif;
+    background-color: #f0f0f0;
+    /* Un fondo claro para resaltar los botones */
+}
+
 .agendar-container {
     display: flex;
     justify-content: center;
@@ -38,17 +46,10 @@
 }
 
 .form-card {
-<<<<<<< HEAD
     background: #ffffff;
     padding: 35px 40px;
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(30, 45, 74, 0.08);
-=======
-    background: white;
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
     width: 100%;
     max-width: 580px;
     border: 1px solid rgba(127, 181, 232, 0.2);
@@ -85,12 +86,8 @@
     color: #1e2d4a;
     font-size: 1.8rem;
     font-weight: 800;
-<<<<<<< HEAD
     margin: 0 0 8px 0;
     letter-spacing: -0.5px;
-=======
-    font-style: italic;
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
 }
 
 .form-subtitle {
@@ -102,40 +99,7 @@
 .agendar-form {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     gap: 18px;
-=======
-    gap: 8px;
-}
-
-input, select {
-    padding: 12px 20px;
-    border-radius: 15px;
-    border: 1px solid #ddd;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    border-color: #74b9ff;
-}
-
-.btn-agendar {
-    width: 100%;
-    padding: 15px;
-    background-color: #0a0a0a;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn-agendar:hover {
-    background-color: #2ecc71;
-    transform: translateY(-2px);
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
 }
 
 .row {

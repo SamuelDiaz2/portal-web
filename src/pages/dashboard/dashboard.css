@@ -40,17 +40,7 @@
     text-transform: capitalize;
 }
 
-<<<<<<< HEAD
 /* Sección de Bienvenida */
-=======
-.settings-icon {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
 .welcome-section {
     text-align: center;
     margin-top: 30px;
@@ -252,22 +242,8 @@
 }
 
 @media (max-width: 600px) {
-<<<<<<< HEAD
     .welcome-title {
         font-size: 2rem;
-=======
-    .welcome-title { font-size: 2rem; }
-    .action-buttons { flex-direction: column; align-items: center; }
-    .profile-badge {
-        padding: 5px; 
-        gap: 0;
-        background: transparent;
-        box-shadow: none;
-    }
-    .user-name-text, 
-    .settings-icon {
-        display: none;
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
     }
 
     .historial-item {

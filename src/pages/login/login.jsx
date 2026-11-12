@@ -60,7 +60,6 @@ function Login() {
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? 'Cargando...' : 'Iniciar Sesión'}
         </button>
-<<<<<<< HEAD
 
 
 
@@ -68,8 +67,6 @@ function Login() {
           <span>¿No tienes cuenta? </span>
           <Link to="/registro" className="register-link">Registrarse</Link>
         </div>
-=======
->>>>>>> c3ccdb12b8295e42b21d251f186c0e7f1e387626
       </form>
     </div>
   );

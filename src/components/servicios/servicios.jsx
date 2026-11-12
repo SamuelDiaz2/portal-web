@@ -29,7 +29,7 @@ function Servicios() {
   return (
     <section id="servicios" className="servicios-section">
       <div className="servicios-wrapper">
-        
+
         {/* ENCABEZADO DE SECCIÓN ELEGANTE */}
         <div className="section-header">
           <div className="section-pill-tag">
@@ -98,7 +98,7 @@ function Servicios() {
                   {categoriaActual === "Física" ? "Física" : categoriaActual === "Psicología" ? "Psicología" : "Respiratoria"}
                 </span>
               </div>
-              
+
               <div className="card-body">
                 <h3 className="card-title">{item.title}</h3>
                 <p className="card-desc">{item.description}</p>
