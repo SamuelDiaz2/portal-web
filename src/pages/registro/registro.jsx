@@ -1,12 +1,12 @@
 import { supabase } from '../../lib/supabase';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './registro.css';
 import emailjs from '@emailjs/browser';
 
 function Registro() {
+    const navigate = useNavigate();
     const [paso, setPaso] = useState(1); // Paso actual (1, 2 o 3)
-
-    const [menuAbierto, setMenuAbierto] = useState(false);
 
     // Estado del formulario
     const [nombre, setNombre] = useState('');
@@ -86,10 +86,10 @@ function Registro() {
             );
 
             console.log("cuenta creada con exito");
-            window.location.href = '/carnet';
+            navigate('/dashboard');
         } catch (err) {
             console.error("Error en el proceso:", err);
-            window.location.href = '/registro';
+            navigate('/registro');
         }
     };
 
