@@ -1,254 +1,550 @@
-:root {
-    --primary-blue: #7fb5e8;
-    --dark-blue: #1e2d4a;
-    --bg-gray: #f2f5f8;
-    --white: #ffffff;
-}
-
+/* =========================================
+   CONTENEDOR BASE
+========================================= */
 .dashboard-container {
-    min-height: 90vh;
-    background-color: var(--bg-gray);
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    padding: 20px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: calc(96px + env(safe-area-inset-top, 0px)) 20px 40px 20px;
+    box-sizing: border-box;
 }
 
-.top-nav {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
-
-.profile-badge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    padding: 6px 16px;
-    border-radius: 50px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.profile-badge img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-}
-
-.profile-badge span {
-    font-weight: 600;
-    color: var(--dark-blue);
-    text-transform: capitalize;
-}
-
-/* Sección de Bienvenida */
-.welcome-section {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.welcome-title {
-    font-size: 2.6rem;
-    font-weight: 900;
-    color: var(--dark-blue);
-    letter-spacing: -1px;
-    margin-bottom: 0;
-}
-
-.user-name {
-    font-size: 1.3rem;
-    color: #64748b;
-    margin-top: 5px;
-    margin-bottom: 25px;
-    font-weight: 500;
-}
-
-.action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    padding: 13px 28px;
-    border-radius: 50px;
-    border: none;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    font-size: 0.95rem;
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(135deg, #4a8db7 0%, #306c94 100%);
-    box-shadow: 0 4px 15px rgba(74, 141, 183, 0.35);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 141, 183, 0.45);
-}
-
-.citas-section {
-    max-width: 620px;
-    margin: 0 auto 30px auto;
-}
-
-.section-title {
-    text-align: center;
-    font-weight: 800;
-    color: var(--dark-blue);
-    margin-bottom: 18px;
-    font-size: 1.15rem;
-    letter-spacing: 0.5px;
-}
-
-.cita-card {
-    background: var(--dark-blue);
-    color: white;
-    padding: 26px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(30, 45, 74, 0.15);
-    position: relative;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    padding-bottom: 12px;
-}
-
-.status-pill {
-    font-size: 0.72rem;
-    padding: 5px 12px;
-    border-radius: 50px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.status-pendiente {
-    background: #f59e0b;
-    color: #ffffff;
-}
-
-.status-confirmada {
-    background: #10b981;
-    color: #ffffff;
-}
-
-.status-cancelada {
-    background: #ef4444;
-    color: #ffffff;
-}
-
-.status-completada {
-    background: #3b82f6;
-    color: #ffffff;
-}
-
-.detail-item {
-    margin: 10px 0;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-    color: #e2e8f0;
-}
-
-.card-footer {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn-cancelar {
-    background: rgba(239, 68, 68, 0.2);
-    color: #fca5a5;
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    padding: 7px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-cancelar:hover:not(:disabled) {
-    background: #ef4444;
-    color: #ffffff;
-}
-
-.btn-cancelar:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.no-citas {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    color: #64748b;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-.loader {
-    text-align: center;
-    padding: 30px;
-    color: #64748b;
-    font-weight: 600;
-}
-
-/* Historial de Citas */
-.historial-section {
-    max-width: 620px;
+.dashboard-content {
+    max-width: 960px;
     margin: 0 auto;
 }
 
-.historial-grid {
+/* =========================================
+   BARRA SUPERIOR
+========================================= */
+.top-nav {
+    max-width: 960px;
+    margin: 0 auto 24px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 7px 14px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7, #04b046);
+}
+
+.profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 5px 14px 5px 6px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.avatar-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* =========================================
+   SALUDO PRINCIPAL
+========================================= */
+.welcome-section {
+    margin-bottom: 26px;
+}
+
+.welcome-title {
+    margin: 0;
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    font-weight: 700;
+    color: #0284c7;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+}
+
+.welcome-title span {
+    font-weight: 800;
+    color: #0369a1;
+}
+
+.welcome-subtitle {
+    margin: 8px 0 0 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #38bdf8;
+    color: #0ea5e9;
+}
+
+/* =========================================
+   TARJETAS DE ACCIÓN (AGENDAR / HISTORIAL)
+========================================= */
+.action-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.action-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 22px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #0f172a;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(2, 132, 199, 0.12);
+    border-color: #7dd3fc;
+}
+
+.action-card:active {
+    transform: scale(0.98);
+}
+
+.action-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.action-card-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.card-agendar .action-card-icon {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    color: #0284c7;
+}
+
+.card-historial .action-card-icon {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    color: #04b046;
+}
+
+.action-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.action-card-info h2 {
+    margin: 0 0 4px 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+}
+
+.action-card-info p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+.action-card-arrow {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #94a3b8;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.action-card:hover .action-card-arrow {
+    transform: translateX(4px);
+    color: #0284c7;
+}
+
+/* =========================================
+   SECCIÓN INFERIOR: PRÓXIMA CITA + CALENDARIO
+========================================= */
+.bottom-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.panel-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0284c7;
+}
+
+.btn-ver-proxima {
+    background: none;
+    border: none;
+    color: #0284c7;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+/* Tarjeta de Próxima Cita */
+.cita-card-elegante {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0284c7;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.cita-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.cita-fecha-badge {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #0369a1;
+    background-color: #f0f9ff;
+    padding: 5px 12px;
+    border-radius: 999px;
+    text-transform: capitalize;
+}
+
+.status-pill {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.status-pill.confirmada {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.status-pill.completada {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+
+.cita-datos-principales {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 14px;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.dato-destacado {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.dato-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+}
+
+.dato-valor {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    word-break: break-word;
+}
+
+.cita-detalles-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 4px;
+}
+
+.detalle-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    color: #64748b;
+}
+
+.detalle-fila strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* Estado sin citas */
+.no-citas-card {
+    background-color: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 18px;
+    padding: 28px 20px;
+    text-align: center;
+    color: #64748b;
+}
+
+.no-citas-card p {
+    margin: 0 0 12px 0;
+    font-size: 0.94rem;
+}
+
+.link-agendar-ahora {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0284c7;
+    text-decoration: none;
+}
+
+/* =========================================
+   CALENDARIO DERECHO
+========================================= */
+.calendario-panel {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.calendario-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.calendario-mes-titulo {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.calendario-nav-btns {
+    display: flex;
+    gap: 6px;
+}
+
+.calendario-nav-btns button {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #334155;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease;
+}
+
+.calendario-nav-btns button:hover {
+    background-color: #e2e8f0;
+}
+
+.calendario-dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.cal-dia {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: #334155;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cal-dia.vacio {
+    cursor: default;
+}
+
+.cal-dia:not(.vacio):hover {
+    background-color: #f1f5f9;
+}
+
+.cal-dia.hoy {
+    background-color: #e0f2fe;
+    color: #0284c7;
+    font-weight: 700;
+}
+
+.cal-dia.con-cita {
+    background-color: #dcfce7;
+    color: #15803d;
+    font-weight: 700;
+}
+
+.cal-dia.seleccionado {
+    background-color: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.cita-punto {
+    position: absolute;
+    bottom: 4px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.calendario-leyenda {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    gap: 16px;
+    font-size: 0.76rem;
+    color: #64748b;
+}
+
+.calendario-leyenda span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.leyenda-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.leyenda-dot.hoy {
+    background-color: #0284c7;
+}
+
+.leyenda-dot.cita {
+    background-color: #16a34a;
+}
+
+/* =========================================
+   SKELETON DE CARGA
+========================================= */
+.cita-skeleton {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.historial-item {
-    background: white;
-    padding: 16px 20px;
-    border-radius: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    border-left: 4px solid #4a8db7;
+.skeleton-line {
+    height: 16px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
 }
 
-.historial-info h4 {
-    margin: 0 0 4px 0;
-    color: var(--dark-blue);
-    font-size: 0.95rem;
+.skeleton-line.short {
+    width: 45%;
 }
 
-.historial-meta {
-    margin: 0;
-    color: #64748b;
-    font-size: 0.85rem;
-}
-
-@media (max-width: 600px) {
-    .welcome-title {
-        font-size: 2rem;
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
     }
 
-    .historial-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* =========================================
+   RESPONSIVE MÓVIL / TABLET
+========================================= */
+@media (max-width: 768px) {
+    .action-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-dashboard-grid {
+        grid-template-columns: 1fr;
     }
 }

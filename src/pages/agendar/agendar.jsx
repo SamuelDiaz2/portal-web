@@ -308,7 +308,7 @@ function Agendar() {
           {/* Horario con Slots Interactivos */}
           <div className="input-group">
             <div className="label-with-helper">
-              <label>Horario Disponible (Aproximadamente)</label>
+              <label>Horario Disponible (Aproximadas)</label>
               {isSaturday && <span className="helper-badge-warning">Sábado: Jornada Especial</span>}
             </div>
 

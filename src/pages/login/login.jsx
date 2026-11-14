@@ -8,21 +8,31 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [mensaje, setMensaje] = useState({ texto: '', tipo: '' });
 
-  const [mensaje, setMensaje] = useState({ texto: "", tipo: "" });
+  // Si ya hay sesión activa, ir directo al dashboard
+  useEffect(() => {
+    const verificarSesion = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        navigate('/dashboard', { replace: true });
+      }
+    };
+    verificarSesion();
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMensaje({ texto: '', tipo: '' });
 
-    // Intentar iniciar sesión en Supabase
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (error) {
-      setMensaje({ texto: "El correo o contraseña son incorrectos", tipo: "error" });
+      setMensaje({ texto: 'El correo o contraseña son incorrectos', tipo: 'error' });
     } else {
       navigate('/dashboard');
     }
@@ -33,7 +43,6 @@ function Login() {
     <div className="login-container">
       <h1 className="login-title">Portal de Pacientes</h1>
       <form className="login-form" onSubmit={handleLogin}>
-
         {mensaje.texto && (
           <div className={mensaje.tipo === 'error' ? 'login-error' : 'login-success'}>
             <p>{mensaje.texto}</p>
@@ -60,8 +69,6 @@ function Login() {
         <button type="submit" className="login-button" disabled={loading}>
           {loading ? 'Cargando...' : 'Iniciar Sesión'}
         </button>
-
-
 
         <div className="login-footer">
           <span>¿No tienes cuenta? </span>

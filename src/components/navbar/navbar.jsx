@@ -1,12 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { supabase } from '../../lib/supabase.js';
 import Logo from '../../assets/img/logo.svg';
 import './navbar.css';
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const [usuarioActivo, setUsuarioActivo] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const verificarUsuario = async () => {
+      // 1. Verificar si hay paciente logueado en Supabase
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const nombreCompleto = user.user_metadata?.nombre_completo || 'Paciente';
+        const primerNombre = nombreCompleto.trim().split(' ')[0];
+        setUsuarioActivo({ primerNombre, ruta: '/dashboard' });
+        return;
+      }
+
+      // 2. Verificar si hay profesional logueado en localStorage
+      const sesionProfesional = localStorage.getItem('sesion');
+      const nombreProfesional = localStorage.getItem('usuarioNombre');
+      if (sesionProfesional && nombreProfesional) {
+        const primerNombre = nombreProfesional.trim().split(' ')[0];
+        setUsuarioActivo({ primerNombre, ruta: '/citas' });
+        return;
+      }
+
+      setUsuarioActivo(null);
+    };
+
+    verificarUsuario();
+
+    // Escuchar cambios de sesión en Supabase y en localStorage
+    const { data: authListener } = supabase.auth.onAuthStateChange(() => {
+      verificarUsuario();
+    });
+    window.addEventListener('app-session-change', verificarUsuario);
+    window.addEventListener('storage', verificarUsuario);
+
+    return () => {
+      authListener.subscription.unsubscribe();
+      window.removeEventListener('app-session-change', verificarUsuario);
+      window.removeEventListener('storage', verificarUsuario);
+    };
+  }, []);
 
   const handleNavClick = (sectionId) => {
     setMenuAbierto(false);
@@ -86,23 +127,35 @@ export default function Navbar() {
           </NavLink>
         </nav>
 
-        {/* ACCIONES DERECHA (LOGIN MORADO + REGISTRO BOTÓN ACENTO) */}
+        {/* ACCIONES DERECHA */}
         <div className="reh-actions-pill">
-          <NavLink
-            to="/login"
-            className="reh-btn-login"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Ingresar
-          </NavLink>
+          {usuarioActivo ? (
+            <NavLink
+              to={usuarioActivo.ruta}
+              className="reh-btn-register"
+              onClick={() => setMenuAbierto(false)}
+            >
+              {usuarioActivo.primerNombre}
+            </NavLink>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+                className="reh-btn-login"
+                onClick={() => setMenuAbierto(false)}
+              >
+                Ingresar
+              </NavLink>
 
-          <NavLink
-            to="/registro"
-            className="reh-btn-register"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Registrarse
-          </NavLink>
+              <NavLink
+                to="/registro"
+                className="reh-btn-register"
+                onClick={() => setMenuAbierto(false)}
+              >
+                Registrarse
+              </NavLink>
+            </>
+          )}
         </div>
 
         {/* BOTÓN MÓVIL (HAMBURGUESA) */}
@@ -164,20 +217,32 @@ export default function Navbar() {
         </NavLink>
 
         <div className="reh-mobile-actions">
-          <NavLink
-            to="/login"
-            className="reh-btn-login mobile"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Ingresar
-          </NavLink>
-          <NavLink
-            to="/registro"
-            className="reh-btn-register mobile"
-            onClick={() => setMenuAbierto(false)}
-          >
-            Registrarse
-          </NavLink>
+          {usuarioActivo ? (
+            <NavLink
+              to={usuarioActivo.ruta}
+              className="reh-btn-register mobile"
+              onClick={() => setMenuAbierto(false)}
+            >
+              {usuarioActivo.primerNombre}
+            </NavLink>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+                className="reh-btn-login mobile"
+                onClick={() => setMenuAbierto(false)}
+              >
+                Ingresar
+              </NavLink>
+              <NavLink
+                to="/registro"
+                className="reh-btn-register mobile"
+                onClick={() => setMenuAbierto(false)}
+              >
+                Registrarse
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </header>
