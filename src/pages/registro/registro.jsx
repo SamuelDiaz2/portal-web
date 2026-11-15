@@ -23,7 +23,6 @@ function Registro() {
     const [password, setPassword] = useState('');
     const [servicio, setServicio] = useState('Terapia Fisica');
     const [modalidad, setModalidad] = useState('30 minutos');
-    const [numeroSesiones, setNumeroSesiones] = useState(1);
 
 
     const handleNext = (e) => {
@@ -220,14 +219,6 @@ function Registro() {
                             <option value="50-minutos">50 minutos</option>
                         </select>
 
-                        <label className="input-label"># de Sesiones:</label>
-                        <input
-                            type="number"
-                            placeholder="Número de sesiones"
-                            required
-                            value={numeroSesiones}
-                            onChange={(e) => setNumeroSesiones(e.target.value)}
-                        />
 
                         <div className="btn-group-row">
                             <button type="button" onClick={handlePrev} className="btn-secundario">Volver</button>
